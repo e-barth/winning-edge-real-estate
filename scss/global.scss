@@ -1,0 +1,39 @@
+:root {
+  --header-height: 104px;
+  --section-padding-block: 70px;
+  @media(max-width: 575px) {
+    --header-height: 84px;
+    --section-padding-block: 40px;
+  }
+
+  --we-blue: #024883;
+  --we-blue-hover: #054479;
+  --we-red: #d3222a;
+}
+
+// UTILITIES
+
+.text-center {
+  text-align: center;
+}
+
+.text-white {
+  color: #fff !important;
+}
+
+// .bg-blue {
+//   background-color: var(--we-blue);
+// }
+
+// BTNS
+
+.btn-red {
+  color: #fff;
+  background-color: var(--we-red);
+}
+
+.md-header {
+  .logo {
+    margin-block: 0;
+  }
+}
