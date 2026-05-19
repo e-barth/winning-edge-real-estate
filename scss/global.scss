@@ -58,6 +58,11 @@
       margin-right: 0 !important;
     }
   }
+  .main-menu {
+    .footer-submenu {
+      display: flex !important;
+    }
+  }
   .share-links {
     margin-top: 30px !important;
     .share-item {
