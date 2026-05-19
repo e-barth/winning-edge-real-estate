@@ -1,9 +1,11 @@
 :root {
   --header-height: 104px;
   --section-padding-block: 70px;
+  --section-padding-block-sm: 50px;
   @media(max-width: 575px) {
     --header-height: 84px;
     --section-padding-block: 40px;
+    --section-padding-block-sm: 30px;
   }
 
   --we-blue: #024883;
@@ -16,14 +18,13 @@
 .text-center {
   text-align: center;
 }
-
+.text-uppercase {
+  text-transform: uppercase;
+}
 .text-white {
   color: #fff !important;
 }
 
-// .bg-blue {
-//   background-color: var(--we-blue);
-// }
 
 // BTNS
 
@@ -32,8 +33,45 @@
   background-color: var(--we-red);
 }
 
+
+// HEADER
+
 .md-header {
   .logo {
     margin-block: 0;
+  }
+}
+
+
+// FOOTER
+
+.md-footer.layout3 {
+  .site-logo {
+    border-bottom: 1px solid var(--g-tip-color);
+    padding-bottom: 45px;
+    & > a {
+      margin-inline: auto;
+      display: block;
+      width: max-content;
+    }
+    .logo-item {
+      margin-right: 0 !important;
+    }
+  }
+  .share-links {
+    margin-top: 30px !important;
+    .share-item {
+      width: 40px !important;
+      height: 40px !important;
+      border: 1px solid var(--g-tip-color);
+      border-radius: 1px;
+      transition: all .24s ease-out;
+      i {
+        font-size: 18px;
+      }
+      &:hover {
+        border: 1px solid #fff;
+      }
+    }
   }
 }
