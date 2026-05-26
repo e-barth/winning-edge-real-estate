@@ -1,0 +1,17 @@
+@mixin custom-containers {
+  width: 100%;
+  padding-inline: 15px;
+  margin-inline: auto;
+  @media (min-width: 768px) {  
+    max-width: 750px;  
+  }
+  @media (min-width: 992px) {  
+    max-width: 970px;  
+  }
+  @media (min-width: 1200px) {  
+    max-width: 1170px;  
+  }
+  @media (min-width: 1400px) {  
+    max-width: 1270px;  
+  }    
+}
