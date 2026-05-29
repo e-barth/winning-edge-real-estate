@@ -1,0 +1,27 @@
+@use 'banner-simple';
+@use 'page-two-col-text-banner';
+
+@include banner-simple.fixing-heading;
+@include page-two-col-text-banner.fixings;
+
+.md-banner.layout1 + .md-custom-code.html-code {
+  background-color: var(--we-blue);
+  padding-block: calc(2rem + 1vw);
+}
+
+.md-cta.layout5 {
+  padding-block: 30px !important;
+  .layout5-inner {
+    justify-content: center;
+  }  
+  .btn-item {
+    border: 1px solid #fff !important;
+  }  
+}
+
+.md-video.layout2 {
+  .title-wrap {
+    width: fit-content !important;
+    margin-inline: auto;
+  }
+}

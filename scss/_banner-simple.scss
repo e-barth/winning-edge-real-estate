@@ -1,0 +1,8 @@
+@mixin fixing-heading {
+  .md-banner.layout1 {
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 4.1rem) !important;
+      line-height: 1.1 !important;
+    }
+  }
+}

@@ -1,0 +1,75 @@
+@use 'banner-simple';
+@use 'page-two-col-text-banner';
+
+@include banner-simple.fixing-heading;
+@include page-two-col-text-banner.fixings;
+
+.md-banner.layout1 {
+  .single-picture {
+    background-position-y: 100%;
+  }
+}
+
+
+.md-banner.layout1 + .md-custom-code.html-code,
+.md-banner.layout2 + .md-custom-code.html-code  {
+  background-color: var(--we-blue);
+  padding-block: calc(2rem + 1vw);
+}
+
+.md-content.layout6 {
+  padding-block: 50px !important;
+  .content-container {
+    max-width: 900px;
+  }
+  .list {
+    .item:first-of-type {
+      .column-info {
+        border-top: none !important;
+      }
+    }
+    .column-question {
+      cursor: pointer;
+      .sub-title {          
+        font-family: font-Lato-700 !important;
+        color: #444;
+        transition: all .25s ease-out;
+      }
+      i {
+        transition: all .25s ease-out;
+      }
+      &:hover {
+        .sub-title {
+          color: var(--we-blue-hover);
+
+        }
+        i {            
+          transform: scale(1.3);
+          &:before {
+            color: var(--we-blue-hover);
+          }
+        }
+      }
+    }
+    .description {
+      p:not(:last-child) {
+        margin-bottom: .9rem;
+        line-height: 1.65;
+      }
+    }    
+  }
+}
+
+.md-cta.layout14 {
+  .content {
+    min-height: unset !important;
+  }
+  .site-card {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+  .site-title {
+    line-height: 1.1 !important;
+    text-wrap: balance;
+  }
+}
