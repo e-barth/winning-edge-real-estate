@@ -12,6 +12,26 @@
   }
 }
 
+.md-cta.layout9 {  
+  .site-p {
+    p {
+      line-height: 1.65;
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  .banner-button-v2 {
+    margin-top: 1rem;
+    @media(max-width: 767px) {
+      justify-content: center !important;
+    }
+    a {
+      min-width: 200px !important;
+    }
+  }
+}
+
 .md-cta.layout9 + .md-custom-code.html-code,
 .md-banner.layout2 + .md-custom-code.html-code {
   background-color: var(--we-blue);

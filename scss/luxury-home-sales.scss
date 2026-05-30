@@ -23,5 +23,50 @@
   .title-wrap {
     width: fit-content !important;
     margin-inline: auto;
+    @media(min-width: 768px) {
+      margin-bottom: 52px;
+    }
+    h2 {
+      line-height: 1.1;
+    }
+  }
+  .video-list {
+    height: 100% !important;
+  }
+  .video-item {
+    position: relative;
+    margin-top: 4.5rem;
+    .video-title {
+      position: absolute;
+      top: -4.5rem;
+      z-index: 2;
+      text-align: center;
+      width: 100%;
+    h3 {
+      width: 100%;
+      color: #333;
+      font-family: font-Lato-700;
+      font-size: clamp(1.15rem, 5vw, 1.25rem);
+      line-height: 1;
+      text-transform: uppercase;
+      margin-bottom: .5rem;
+      
+    }
+    p {
+      width: 100%;
+      color: #444;
+    }
+    }
+    .video-content {
+      aspect-ratio: 5/3;
+    }
   }
 }
+
+.md-gallery.layout2 {
+  .site-title {
+    h2 {
+      line-height: 1.1;
+    }
+  }
+} 

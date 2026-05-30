@@ -2,3 +2,58 @@
   <h2>DEALING WITH DIVORCE AND YOUR REAL ESTATE ASSETS</h2>
   <p>Understand your options, protect your interests, and make informed decisions when navigating real estate matters during the divorce process.</p>
 </div>
+
+<script id="video-title-one" type="text/html" >
+  <div class="video-title">
+    <h3>
+      $7 Million Estate Aerial Video
+    </h3>
+    <p>
+      3925 Folly Quarter Road Aerial
+    </p>
+  </div>
+</script>
+
+<script id="video-title-two" type="text/html" >
+  <div class="video-title">
+    <h3>
+      $7 Million Estate Interior Video
+    </h3>
+    <p>
+      3925 Folly Quarter Road Interior
+    </p>
+  </div>
+</script>
+
+<script id="video-title-three" type="text/html" >
+  <div class="video-title">
+    <h3>
+      $3 Million Luxury Property Video
+    </h3>
+    <p>
+      13509 Paternal Gift Drive
+    </p>
+  </div>
+</script>
+
+<script async>   
+  function addVideoTitles() {
+    const videoTitles = [
+      ['.md-video .swiper-wrapper .video-item:nth-of-type(1) .video-content', '#video-title-one'],
+      ['.md-video .swiper-wrapper .video-item:nth-of-type(2) .video-content', '#video-title-two'],
+      ['.md-video .swiper-wrapper .video-item:nth-of-type(3) .video-content', '#video-title-three']
+    ];
+
+    videoTitles.forEach(([videoSelector, titleSelector]) => {
+      const video = document.querySelector(videoSelector);
+      const title = document.querySelector(titleSelector);
+
+      if (video && title) {
+        video.insertAdjacentHTML('beforebegin', title.innerHTML);
+      }
+    });
+  }   
+  window.addEventListener('load',() => {   
+    addVideoTitles();    
+  });
+</script>

@@ -12,6 +12,26 @@
       line-height: 1 !important;
     }
   }
+
+  .md-banner.layout2,
+  .md-cta.layout9 {
+    .site-title.left {
+      @media(max-width: 767px) {
+        text-align: center !important;
+      }
+    }
+  }
+
+  .md-banner.layout2 {
+    .site-p {
+      p {
+        line-height: 1.65;
+        &:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
   
   .md-banner.layout2.mobile.revert {
     @media(max-width: 600px) {
