@@ -1,0 +1,10 @@
+@use 'banner-simple';
+@use 'title-strip';
+
+@include banner-simple.fixing-heading;
+@include title-strip.title-strip;
+
+.md-banner.layout1 + .md-custom-code.html-code {
+  background-color: var(--we-blue);
+  padding-block: calc(2rem + 1vw);  
+}

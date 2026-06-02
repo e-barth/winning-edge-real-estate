@@ -1,8 +1,10 @@
 @use 'banner-simple';
 @use 'page-two-col-text-banner';
+@use 'title-strip';
 
 @include banner-simple.fixing-heading;
 @include page-two-col-text-banner.fixings;
+@include title-strip.title-strip;
 
 .md-cta.layout5 {
   padding-block: 30px !important;
