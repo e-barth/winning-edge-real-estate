@@ -1,0 +1,18 @@
+@use 'banner-simple';
+@use 'contact-info';
+@use 'contact-form';
+
+@include banner-simple.fixing-heading;
+@include contact-info.contact-info;
+@include contact-form.contact-form;
+
+.md-form.layout11 + .md-custom-code.html-code {
+  background-color: var(--we-red);    
+  padding-block: calc(1.8rem + .7vw);
+  h2 {
+    font-family: var(--mg-title-font);
+    font-size: clamp(1.7rem, 2.7vw, 2.5rem);
+    line-height: 1.1;
+    text-wrap: balance;
+  }     
+}

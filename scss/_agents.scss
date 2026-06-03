@@ -1,0 +1,44 @@
+@mixin agent-details {
+  .site.agent-detail.template41 {
+    .hero-banner {
+      padding-block: var(--section-padding-block);
+      height: unset !important;
+    }
+    .hero-content {
+      max-width: 1000px;
+    }
+    .agent-photo-wrapper {
+      float: right !important;
+      margin-inline: 50px 0 !important;
+    }
+    .agent-headshot {
+      width: 420px !important;
+      height: auto !important;
+      aspect-ratio: 1;
+      border-radius: 2px !important;
+    }
+    .bio-name {
+      font-family: font-Lato-700;
+      text-transform: uppercase;
+    }
+    .bio-text {
+      p {
+        font-family: var(--font-normal) !important;
+        font-size: 1rem !important;
+        & > span {
+          color: rgba(#fff, .9) !important;
+          font-size: 1em !important;
+        }
+      }
+      strong {
+        color: rgba(#fff, .95) !important;
+        font-size: 2rem !important; 
+        text-transform: uppercase;
+        display: block;
+        padding-block: 1.6rem 1rem;
+        margin-bottom: 1.4rem;
+        border-bottom: 1px solid rgba(#fff, .4);      
+      } 
+    }
+  }
+}
