@@ -46,14 +46,10 @@
   .md-snapshot-search.template4 + .md-custom-code.html-code {
     padding-block: var(--section-padding-block);
     background-color: var(--g-bg-color);
-    .mg-container {
-      padding-block: 12px;
-      max-width: 1024px;
-      margin-inline: auto;
-    }
     .top-reasons {
       background-color: #fff;
       box-shadow: 3px 4px 12px -1px rgba(0, 0, 0, 0.05);
+      max-width: 1000px;
       padding: 4rem 5%;
       @media(max-width: 767px) {
         padding: 3rem 1rem;
@@ -66,7 +62,7 @@
         line-height: 1 !important;
         text-align: center;
         span {
-          font-size: .5em !important;
+          font-size: .45em !important;
           display: block;
           margin-bottom: 1em;
           font-family: font-Lato-700;

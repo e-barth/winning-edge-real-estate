@@ -52,6 +52,38 @@
   .logo {
     margin-block: 0;
   }
+  .head-menu {
+    & > li {
+      &:last-child {
+        &:before {
+          display: none !important;
+        }
+      }
+    }
+    
+    [href="/tel:+1410-461-2800"] {
+      border: 1px solid #fff;
+      padding: .8rem 1rem !important;
+      display: flex !important;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      transition: all .25s ease-out;
+      &:hover {
+        background-color: #fff;
+        color: #222;
+      }
+    }
+
+    .submenu {
+      padding-bottom: .5rem;
+      .menu-item {
+        a {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
 }
 
 
@@ -88,6 +120,19 @@
       }
       &:hover {
         border: 1px solid #fff;
+      }
+    }
+  }
+  .custom-content {
+    [href="/about"] {
+      background-color: var(--we-red);
+      padding: .75rem 1.5rem;
+      margin-top: 1rem;
+      display: inline-block;
+      transition: all .25s ease-out;
+      border-radius: 1px;
+      &:hover {
+        background-color: var(--we-red-hover);
       }
     }
   }

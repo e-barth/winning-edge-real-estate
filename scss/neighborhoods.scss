@@ -1,0 +1,21 @@
+@use 'banner-simple';
+@use 'featured-areas';
+
+@include banner-simple.fixing-heading;
+
+.md-banner.layout1 + .md-custom-code.html-code {
+  @include featured-areas.featured-areas;
+}
+
+.md-cta.layout5 {
+  padding-block: 30px !important;
+  .layout5-inner {
+    justify-content: center;
+  }  
+  h2 {
+    text-transform: uppercase;
+  }
+  .btn-item {
+    border: 1px solid #fff !important;
+  }  
+}

@@ -1,0 +1,72 @@
+@use 'banner-simple';
+@use 'contact-form';
+@use 'cta-layout-13';
+
+@include banner-simple.fixing-heading;
+
+.md-banner.layout1 + .md-custom-code.html-code {
+  background-color: rgba(218, 218, 218, 1);
+  padding-block: var(--section-padding-block) 0;
+  .mg-container {
+    width: 100% !important;
+  }
+  .f-col {
+    background-color: #fff;
+    padding: 70px 10% 0;
+    @media(max-width: 575px) {
+      padding: 30px 15px 0;
+    }
+    max-width: 1240px;
+    text-align: center;
+  }  
+  h2 {    
+    color: #333;  
+    font-family: var(--mg-title-font);
+    font-size: clamp(2rem, 3vw, 2.9rem) !important;
+    line-height: 1;
+    text-wrap: balance;
+    text-transform: uppercase;
+    span {
+      font-size: .45em !important;
+      display: block;
+      margin-bottom: 1em;
+      font-family: font-Lato-700;
+      color: var(--we-red);
+    }
+  } 
+  p {
+    font-family: var(--font-normal);
+    color: #444;  
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-top: 2rem;
+    text-wrap: pretty;
+  }
+}
+
+@include contact-form.contact-form;
+
+.md-form.layout11 {
+  padding-block: 0 var(--section-padding-block) !important;
+  .form-agent {
+    padding-top: 0 !important;
+    &:before {
+      display: none !important;
+    }
+  }
+  .agent-form-wrap {
+    max-width: 1240px !important;
+    padding-top: 40px !important;
+    @media(min-width: 576px) {
+      padding-inline: 10% !important;
+    }
+    @media(max-width: 575px) {
+      padding-top: 20px !important;
+    }
+  }
+  .agent-info-links, .form-map {
+    display: none !important;
+  }
+}
+
+@include cta-layout-13.cta-layout-13;
