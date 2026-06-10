@@ -1,28 +1,25 @@
-@use 'containers';
-@use 'cta-layout-13';
+@use 'mixins';
+@use 'standard-content-style';
 
-.md-banner.layout1 {
-  .site-title {
-    line-height: .8 !important;
-    text-wrap: balance; 
+@include mixins.utilities;
+@include mixins.fixing-header;
+@include mixins.fixing-h2-title;
+@include mixins.title-strip;
+
+.md-custom-code.html-code:not(.md-header.layout2 + .md-custom-code.html-code) {
+  padding-block: var(--section-padding-block);
+}
+
+.title-strip {
+  max-width: unset !important;
+  h2 {
+    font-size: clamp(1.6rem, 2.5vw, 2.3rem) !important;
   }
 }
 
-.md-content.layout8 {
+.md-banner.layout1 + .md-custom-code.html-code {
+  background-color: var(--we-blue);
   padding-block: calc(2rem + 1vw) !important;
-  .title-section {
-    margin-bottom: 0 !important;
-  }
-  .site-title {
-    line-height: 1;
-    text-wrap: balance;   
-    h2 {
-      display: flex;
-    }     
-  }
-  .subtitle-section {
-    margin-bottom: 0 !important;
-  }
 }
 
 .md-team-desc.layout1 {
@@ -37,7 +34,7 @@
     }
   }
   .desc-list {
-    @include containers.custom-containers;
+    @include mixins.custom-containers;
     margin-top: 40px;
     @media(max-width: 991px) {
       display: grid !important;
@@ -65,103 +62,45 @@
   }
 }
 
-.md-content.layout8 + .md-custom-code.html-code {     
-  .mg-container {
-    width: 100%;      
-  }  
-  #why-choose-we {      
-    @include containers.custom-containers;
-    .row {
-      display: grid;
-      grid-template-columns: 1fr;
-      @media(min-width: 992px) {
-        grid-template-columns: 1fr 1fr;
-      }
-      padding-block: 60px calc(60px - .8rem);
-      & > div {          
-        width: 100%;    
-        align-content: center;
-      }
-    }      
-    
-    .row:not(.row-direction-reverse) {
-      .col-text {
-        @media(min-width: 992px) {
-          padding-left: calc(20px + 2vw);
-        }
-        @media(max-width: 991px) {
-          padding-top: 40px;
-        }
-      }
-    }
-
-    .row-direction-reverse {        
-      position: relative;
-      z-index: 1;
-      &:before {
-        content: '';
-        background-color: var(--g-bg-color);
-        position: absolute;
-        width: 100vw;
-        height: 100%;
-        top: 0;
-        right: 50%;
-        z-index: -1;
-        transform: translateX(50vw)
-      } 
-
-      .col-text {
-        @media(min-width: 992px) {
-          padding-right: calc(20px + 2vw);
-          order: -1;
-        }
-        @media(max-width: 991px) {
-          padding-top: 40px;
-        }
-      }
-    }      
-
-    img {
-      width: 100%;
-      height: auto;           
-      border-radius: 2px;
-      box-shadow: 3px 4px 12px 1px rgba(0, 0, 0, .07);
-    }
-    h3 {
-      font-size: clamp(1.5rem, 2.7vw, 2.3rem);
-      line-height: 1.1;
-      text-transform: uppercase;
-      margin-bottom: .75em;
-      font-family: var(--mg-title-font);
-      opacity: .8;
-      @media(max-width: 991px) {
-        text-align: center;
-      }
-    }        
-    p, li {
-      font-size: 1rem;
-      line-height: 1.65;
-      opacity: .8;
-      &:not(:first-child) {
-        margin-top: .9rem;
-      }
-    }
-
-    li > ul {
-      margin-top: .9rem;
-    }
-
-    ul > li > ul 
-    
-    .btn-wrapper {
-      margin: 2.5rem 0 0 !important;
-      width: fit-content;
-      .btn-item {
-        margin: 0 !important;
-      }
-    }
-  }
-
+.md-team-desc.layout1 + .md-custom-code.html-code {
+  background-color: var(--we-red);
+  padding-block: calc(2rem + 1vw) !important;
 }
 
-@include cta-layout-13.cta-layout-13;
+.md-team-desc.layout1 + .md-custom-code.html-code + .md-custom-code.html-code {
+  .mg-container {
+    padding: 15px;
+    @media(max-width: 600px) {
+      width: 100% !important;
+    }
+  }
+}
+
+#why-winning-edge {     
+  .h3 {
+    font-size: clamp(1.5rem, 2.5vw, 1.85rem);
+    margin-bottom: 1.5rem;
+  }
+  p, li {
+    line-height: 1.65;
+  }
+  ul {
+    @include mixins.check-style-list;
+  }  
+  .btn-wrapper {
+    margin: 2.5rem 0 0 !important;
+    width: fit-content;
+    @media(min-width: 992px) {
+      justify-content: flex-start;
+    }
+    .btn-item {
+      margin: 0;
+      font-size: 16px;
+      min-width: 200px;
+      height: 50px;
+      line-height: 50px;
+    }
+  }
+}
+
+@include mixins.cta-layout-13;

@@ -1,8 +1,7 @@
-@use 'banner-simple';
-@use 'title-strip';
+@use 'mixins';
 
-@include banner-simple.fixing-heading;
-@include title-strip.title-strip;
+@include mixins.fixing-header;
+@include mixins.title-strip;
 
 .md-banner.layout1 + .md-custom-code.html-code {
   background-color: var(--we-blue);

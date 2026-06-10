@@ -1,0 +1,164 @@
+@use 'mixins';
+@use 'standard-content-style';
+
+@include mixins.fixing-header;
+@include mixins.fixing-h2-title;
+@include mixins.title-strip;
+
+.md-custom-code.html-code:not(.md-header.layout2 + .md-custom-code.html-code) {
+  padding-block: var(--section-padding-block);
+}
+
+.md-banner.layout1 + .md-custom-code.html-code {
+  background-color: #fff;
+  .f-col {
+    max-width: 1000px; 
+  }
+  h2 {
+    text-align: center;
+    display: flex;
+    margin: 0 auto 2rem;
+    text-align: center;
+    justify-content: center;
+  }
+  .banner-button-v2 {
+    column-gap: 5px;
+    row-gap: 5px;
+    margin-top: 2rem;
+    .btn-item {
+      margin: 0 ;
+      font-size: 16px;
+      min-width: 200px;
+      height: 50px;
+      line-height: 50px;
+    }
+  }
+}
+
+.md-banner.layout1 + .md-custom-code.html-code + .md-custom-code.html-code {
+  background-color: #fafafa;
+}
+
+#marketing-strategy {  
+  .title-wrapper {
+    text-align: center;
+    text-wrap: balance;
+    max-width: 1000px;
+    margin-inline: auto;
+    margin-bottom: 3rem !important;
+  }
+  h2 {    
+    color: #444;      
+    margin-bottom: 2.5rem;
+
+    span {
+      font-family: font-Lato-700;
+      color: var(--we-red);
+      font-size: .45em !important;
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+  } 
+  .lead {
+    font-size: 1.05rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #777;
+  }
+  .row {
+    --gap-x: 8px;
+    --gap-y: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: calc(-1 * var(--gap-y)) calc(-1 * var(--gap-x)) 0;
+
+    .col {
+      width: 20%;
+      flex: 0 0 20%;        
+      padding: var(--gap-y) var(--gap-x) 9px;
+      @media(max-width: 1199px) {
+        width: 25%;
+        flex: 0 0 25%;
+      } 
+      @media(max-width: 991px) {
+        width: 33%;
+        flex: 0 0 33%;
+      } 
+      @media(max-width: 767px) {
+        width: 50%;
+        flex: 0 0 50%;
+      } 
+      @media(max-width: 575px) {
+        width: 100%;
+        flex: 0 0 100%;
+      } 
+    }     
+    
+    .card {
+      background-color: var(--we-blue);
+      border-radius: 2px;
+      padding: 20px;
+      height: 100%;
+      box-shadow: 4px 5px 9px -1px rgba(#000, .1);
+      min-height: 134px;    
+      p {
+        color: rgba(#fff, .9);
+        font-family: font-Lato-400;
+        font-size: 1.1rem;
+        line-height: 1.3;
+        text-transform: uppercase;
+        text-align: center;
+        position: relative;
+        padding-top: 44px;
+        &:before {
+          content: '';
+          width: 32px;
+          height: 32px;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          background-image: url("data:image/svg+xml;base64,PHN2ZyBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLW1pdGVybGltaXQ9IjIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSIjZmZmIj48cGF0aCBkPSJtMTEuOTk4IDIuMDA1YzUuNTE3IDAgOS45OTcgNC40OCA5Ljk5NyA5Ljk5NyAwIDUuNTE4LTQuNDggOS45OTgtOS45OTcgOS45OTgtNS41MTggMC05Ljk5OC00LjQ4LTkuOTk4LTkuOTk4IDAtNS41MTcgNC40OC05Ljk5NyA5Ljk5OC05Ljk5N3ptLTUuMDQ5IDEwLjM4NiAzLjg1MSAzLjQzYy4xNDIuMTI4LjMyMS4xOS40OTkuMTkuMjAyIDAgLjQwNS0uMDgxLjU1Mi0uMjQybDUuOTUzLTYuNTA5Yy4xMzEtLjE0My4xOTYtLjMyMy4xOTYtLjUwMiAwLS40MS0uMzMxLS43NDctLjc0OC0uNzQ3LS4yMDQgMC0uNDA1LjA4Mi0uNTU0LjI0M2wtNS40NTMgNS45NjItMy4yOTgtMi45MzhjLS4xNDQtLjEyNy0uMzIxLS4xOS0uNDk5LS4xOS0uNDE1IDAtLjc0OC4zMzUtLjc0OC43NDYgMCAuMjA1LjA4NC40MDkuMjQ5LjU1N3oiIGZpbGwtcnVsZT0ibm9uemVybyIvPjwvc3ZnPg==");
+          background-repeat: no-repeat;
+          background-size: contain;
+        } 
+      }      
+    }
+  }
+}
+
+.md-banner.layout1 + .md-custom-code.html-code + .md-custom-code.html-code + .md-custom-code.html-code {
+  background-color: var(--we-blue);
+  padding-block: calc(2rem + 1vw);
+}
+
+.full-service-estate-liquidation {
+  @include mixins.section-service-estate-liquidation;
+}
+
+.md-custom-code.html-code + .md-cta.layout1 {
+  .banner {
+    padding-block: var(--section-padding-block);
+  }  
+}
+
+.md-cta.layout1 + .md-custom-code.html-code {
+  .mg-container {
+    padding: 15px;
+    @media(max-width: 600px) {
+      width: 100% !important;
+    }
+  }
+}
+
+#programs-and-offers {
+  .flex-col {
+    &--img {
+      background-color: hsl(0, 0%, 97%);
+    }
+    &--text {
+      background-color: #fff;
+    }
+  }
+}

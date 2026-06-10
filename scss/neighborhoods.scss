@@ -1,10 +1,9 @@
-@use 'banner-simple';
-@use 'featured-areas';
+@use 'mixins';
 
-@include banner-simple.fixing-heading;
+@include mixins.fixing-header;
 
 .md-banner.layout1 + .md-custom-code.html-code {
-  @include featured-areas.featured-areas;
+  @include mixins.featured-areas;
 }
 
 .md-cta.layout5 {

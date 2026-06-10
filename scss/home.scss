@@ -1,7 +1,4 @@
-@use 'accolades';
-@use 'featured-areas';
-@use 'contact-info';
-@use 'contact-form';
+@use 'mixins';
 
 .md-hero {    
   .banner {
@@ -279,7 +276,7 @@
 }
 
 .md-cta.layout11 + .md-custom-code.html-code {
-  @include accolades.accolades;
+  @include mixins.accolades;
 }  
 
 .md-partner.layout1  + .md-custom-code.html-code {
@@ -352,7 +349,7 @@
 }
 
   .md-form.layout13 + .md-custom-code.html-code {
-    @include featured-areas.featured-areas;
+    @include mixins.featured-areas;
   }
 
 .md-testimonial.layout5 {
@@ -376,9 +373,9 @@
   }
 }  
 
-@include contact-info.contact-info;
+@include mixins.contact-info;
 
-@include contact-form.contact-form;
+@include mixins.contact-form;
 
 .md-form.layout11 + .md-custom-code.html-code {
   background-color: var(--we-red);    

@@ -1,4 +1,4 @@
-@use 'agents';
+@use 'mixins';
 
 :root {
   --header-height: 104px;
@@ -138,4 +138,4 @@
   }
 }
 
-@include agents.agent-details;
+@include mixins.agent-details;

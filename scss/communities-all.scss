@@ -1,7 +1,6 @@
-@use 'banner-simple';
-@use 'community-page';
-@use 'contact-form';
+@use 'mixins';
 
-@include banner-simple.fixing-heading;
-@include community-page.community-page-fixings;
-@include contact-form.contact-form;
+
+@include mixins.fixing-header;
+@include mixins.community-page-fixings;
+@include mixins.contact-form;

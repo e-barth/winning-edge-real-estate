@@ -1,8 +1,6 @@
-@use 'banner-simple';
-@use 'contact-form';
-@use 'cta-layout-13';
+@use 'mixins';
 
-@include banner-simple.fixing-heading;
+@include mixins.fixing-header;
 
 .md-banner.layout1 + .md-custom-code.html-code {
   background-color: rgba(218, 218, 218, 1);
@@ -44,7 +42,7 @@
   }
 }
 
-@include contact-form.contact-form;
+@include mixins.contact-form;
 
 .md-form.layout11 {
   padding-block: 0 var(--section-padding-block) !important;
@@ -69,4 +67,4 @@
   }
 }
 
-@include cta-layout-13.cta-layout-13;
+@include mixins.cta-layout-13;

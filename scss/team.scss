@@ -1,9 +1,7 @@
-@use 'banner-simple';
-@use 'title-strip';
-@use 'containers';
+@use 'mixins';
 
-@include banner-simple.fixing-heading;
-@include title-strip.title-strip;
+@include mixins.fixing-header;
+@include mixins.title-strip;
 
 .md-banner.layout1 + .md-custom-code.html-code,
 .md-agent-search.layout6 + .md-custom-code.html-code {
@@ -13,7 +11,7 @@
 
 .md-agent-search.layout6 {
   .f-col {
-    @include containers.custom-containers;
+    @include mixins.custom-containers;
   }
   .agent-search {
     display: none;

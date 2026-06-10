@@ -1,17 +1,14 @@
-@use 'banner-simple';
-@use 'page-two-col-text-banner';
-@use 'title-strip';
+@use 'mixins';
 
-@include banner-simple.fixing-heading;
-@include page-two-col-text-banner.fixings;
-@include title-strip.title-strip;
+@include mixins.fixing-header;
+@include mixins.fixings;
+@include mixins.title-strip;
 
-.md-banner.layout1 + .md-banner.layout2 {
-  @media(max-width: 600px) {
-    .banner.single {
-      display: none;
-    }
-  }
+.md-banner.layout1 + .md-custom-code.html-code,
+.md-cta.layout9 + .md-custom-code.html-code,
+.md-banner.layout2 + .md-custom-code.html-code {
+  background-color: var(--we-blue);
+  padding-block: calc(2rem + 1vw);  
 }
 
 .md-cta.layout9 {  
@@ -34,12 +31,6 @@
   }
 }
 
-.md-cta.layout9 + .md-custom-code.html-code,
-.md-banner.layout2 + .md-custom-code.html-code {
-  background-color: var(--we-blue);
-  padding-block: calc(2rem + 1vw);  
-}
-
 .md-cta.layout1 {
   .banner {
     min-height: unset !important;
@@ -55,8 +46,8 @@
 }
 
 .md-content.layout8 + .md-cta.layout1 {
-  padding-block: 0 80px;
   .banner {
+    padding-block: var(--section-padding-block);
     min-height: unset !important;
   }
   .site-title {
@@ -86,86 +77,9 @@
 }
 
 .md-custom-code.html-code + .md-custom-code.html-code {
-  padding-block: 80px;
-  @media(max-width: 767px) {
-    padding-block: 40px;
-  }
+  padding-block: var(--section-padding-block);  
 }
 
-#liquidation-guide-grid {
-  max-width: 1240px;
-  margin-inline: auto;
-  h3 {
-    font-family: var(--mg-title-font);
-    font-size: 2rem;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 1rem;
-    color: #222;
-  }
-  .lead {
-    font-size: 1.05rem;
-    text-align: center;
-    margin-bottom: 50px;
-    color: #333;
-  }
-  .row {
-    --gap-x: 16px;
-    --gap-y: 32px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    margin: calc(-1 * var(--gap-y)) calc(-1 * var(--gap-x)) 0;
-
-    .col {
-      width: 33%;
-      flex: 0 0 33%;        
-      padding: var(--gap-y) var(--gap-x) 9px;
-      @media(max-width: 991px) {
-        width: 50%;
-        flex: 0 0 50%;
-      } 
-      @media(max-width: 600px) {
-        width: 100%;
-        flex: 0 0 100%;
-      } 
-    }     
-    
-    .card {
-      background-color: #fff;
-      border: 1px solid #f0f0f0;
-      border-radius: 2px;
-      padding: 20px;
-      height: 100%;
-      box-shadow: 4px 5px 9px -1px rgba(#000, .1);
-      span {
-        background-color: var(--we-blue);
-        color: #fff;
-        font-family: var(--mg-title-font);
-        font-size: 20px;
-        height: 44px;
-        width: 44px;
-        border-radius: 2px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 16px;          
-      }
-      ul {
-        padding-left: 1.7rem !important;
-        margin-bottom: 12px;
-      }
-      p, li {
-        font-size: 16px;
-        line-height: 1.65;
-        color: #333;
-      }
-      p {
-        margin-bottom: 12px;
-      }
-      li {
-        margin-bottom: 2px;
-      }
-    }
-  }
+.full-service-estate-liquidation {
+  @include mixins.section-service-estate-liquidation;
 }

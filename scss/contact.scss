@@ -1,10 +1,8 @@
-@use 'banner-simple';
-@use 'contact-info';
-@use 'contact-form';
+@use 'mixins';
 
-@include banner-simple.fixing-heading;
-@include contact-info.contact-info;
-@include contact-form.contact-form;
+@include mixins.fixing-header;
+@include mixins.contact-info;
+@include mixins.contact-form;
 
 .md-form.layout11 + .md-custom-code.html-code {
   background-color: var(--we-red);    

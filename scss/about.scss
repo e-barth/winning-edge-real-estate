@@ -1,9 +1,6 @@
-@use 'banner-simple';
-@use 'accolades';
-@use 'contact-info';
-@use 'contact-form';
+@use 'mixins';
 
-@include banner-simple.fixing-heading;
+@include mixins.fixing-header;
 
 .md-cta.layout7 {
   padding-block: 0 var(--section-padding-block-sm) !important;
@@ -81,13 +78,13 @@
   }
 }
 
-@include contact-info.contact-info;
+@include mixins.contact-info;
 
 .md-agent-contact.template8 + .md-custom-code.html-code {
-  @include accolades.accolades;
+  @include mixins.accolades;
 } 
 
-@include contact-form.contact-form;
+@include mixins.contact-form;
 
 .md-form.layout11 + .md-custom-code.html-code {
   background-color: var(--we-red);    
