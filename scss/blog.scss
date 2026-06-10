@@ -1,3 +1,13 @@
-@use 'banner-simple';
+@use 'mixins';
 
-@include banner-simple.fixing-heading;
+@include mixins.fixing-header;
+
+.blog-list.layout1 {
+  .blog-card {
+    .card-content  {
+      .blog-title  {
+        line-height: 1.3;
+      }
+    }
+  } 
+}
