@@ -2,6 +2,7 @@
 
 @include mixins.fixing-header;
 @include mixins.title-strip;
+@include mixins.fixing-h2-title;
 
 .md-banner.layout1 + .md-custom-code.html-code,
 .md-agent-search.layout6 + .md-custom-code.html-code {

@@ -16,6 +16,17 @@
   --we-red-hover: #c02229;
 }
 
+// TEXT COLORS 
+.text-white {
+  color: #fff !important;
+}
+.text-blue {
+  color: var(--we-blue) !important;
+}
+.text-red {
+  color: var(--we-red) !important;
+}
+
 // UTILITIES
 .text-center {
   text-align: center;
@@ -23,8 +34,8 @@
 .text-uppercase {
   text-transform: uppercase;
 }
-.text-white {
-  color: #fff !important;
+.d-inline-block {
+  display: inline-block;
 }
 
 

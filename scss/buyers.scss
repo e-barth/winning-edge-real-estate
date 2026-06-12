@@ -1,11 +1,52 @@
+@use 'mixins';
 @use 'standard-content-style';
 
-.bah .flex-col--img .img-wrapper span {
-  font-size: 1.15rem;
-  font-weight: bold;
-  line-height: 1.2;    
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: .6rem;
-  display: block;
+@include mixins.fixing-header;
+@include mixins.fixing-h2-title;
+@include mixins.title-eyebrow;
+@include mixins.title-strip;
+
+.md-custom-code.html-code:not(.md-header.layout2 + .md-custom-code.html-code) {
+  padding-block: var(--section-padding-block);
 }
+
+.md-banner.layout1 {
+  .single-picture {
+    background-position: 50% 100%;
+  }
+}
+
+.md-banner.layout1 + .md-custom-code.html-code {
+  .mg-container {
+    padding: 15px;
+    @media(max-width: 600px) {
+      width: 100% !important;
+    }
+  }
+}
+
+.md-banner.layout1 + .md-custom-code.html-code,
+.md-cta.layout1 + .md-custom-code.html-code {
+  .mg-container {
+    padding: 15px;
+    @media(max-width: 600px) {
+      width: 100% !important;
+    }
+  }
+}
+
+.md-custom-code.html-code + .md-cta.layout1 {
+  .banner {
+    min-height: unset !important;
+    padding-block: var(--section-padding-block);
+  }
+}
+
+.md-custom-code.html-code + .md-custom-code.html-code {
+  background-color: var(--we-blue);
+  padding-block: calc(2rem + 1vw) !important;
+}
+
+@include mixins.testimonials;  
+
+@include mixins.cta-layout-13;

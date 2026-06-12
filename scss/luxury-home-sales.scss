@@ -3,6 +3,7 @@
 @include mixins.fixing-header;
 @include mixins.fixings;
 @include mixins.title-strip;
+@include mixins.fixing-h2-title;
 
 .md-banner.layout1 + .md-custom-code.html-code {
   background-color: var(--we-blue);
@@ -27,7 +28,7 @@
       margin-bottom: 52px;
     }
     h2 {
-      line-height: 1.1;
+      line-height: 1.1 !important;
     }
   }
   .video-list {
@@ -47,7 +48,7 @@
       color: #333;
       font-family: font-Lato-700;
       font-size: clamp(1.15rem, 5vw, 1.25rem);
-      line-height: 1;
+      line-height: 1 !important;
       text-transform: uppercase;
       margin-bottom: .5rem;
       
@@ -66,7 +67,7 @@
 .md-gallery.layout2 {
   .site-title {
     h2 {
-      line-height: 1.1;
+      line-height: 1.1 !important;
     }
   }
 } 

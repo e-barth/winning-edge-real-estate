@@ -1,6 +1,9 @@
 @use 'mixins';
 
 @include mixins.fixing-header;
+@include mixins.fixing-h2-title;
+@include mixins.title-strip;
+@include mixins.title-eyebrow;
 
 .md-cta.layout7 {
   padding-block: 0 var(--section-padding-block-sm) !important;
@@ -84,15 +87,19 @@
   @include mixins.accolades;
 } 
 
+@include mixins.testimonials;
+
 @include mixins.contact-form;
 
 .md-form.layout11 + .md-custom-code.html-code {
   background-color: var(--we-red);    
   padding-block: calc(1.8rem + .7vw);
+  .title-strip {
+    max-width: 100% !important;
+  }
   h2 {
-    font-family: var(--mg-title-font);
-    font-size: clamp(1.7rem, 2.7vw, 2.5rem);
-    line-height: 1.1;
+    font-size: clamp(1.7rem, 2.7vw, 2.5rem) !important;
+    line-height: 1.1 !important;
     text-wrap: balance;
   }     
 }

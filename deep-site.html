@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client vs Industry Comparison</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --client-accent: #0f4c81;
+            --client-accent-light: #e8f1fb;
+            --industry-accent: #6c757d;
+            --industry-accent-light: #f1f3f5;
+            --vs-gradient-start: #1a6bcc;
+            --vs-gradient-end: #0d47a1;
+        }
+
+        .comparison-section {
+            background: linear-gradient(180deg, #f8fafb 0%, #eef2f6 100%);
+            padding: 80px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: white;
+            color: #0f4c81;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 8px 18px;
+            border-radius: 50px;
+            border: 1.5px solid #e2e8f0;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: #1a1d23;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: #6b7280;
+            font-weight: 400;
+            margin-bottom: 16px;
+        }
+
+        .comparison-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 32px 28px;
+            height: 100%;
+            position: relative;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.09), 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .comparison-card.client-card {
+            border-top: 5px solid var(--client-accent);
+        }
+
+        .comparison-card.client-card::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 140px;
+            height: 140px;
+            background: var(--client-accent-light);
+            border-radius: 50%;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .comparison-card.industry-card {
+            border-top: 5px solid var(--industry-accent);
+        }
+
+        .comparison-card.industry-card::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 140px;
+            height: 140px;
+            background: var(--industry-accent-light);
+            border-radius: 50%;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .card-header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-bottom: 28px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .client-card .card-header-badge {
+            background: var(--client-accent);
+            color: #ffffff;
+        }
+
+        .industry-card .card-header-badge {
+            background: var(--industry-accent);
+            color: #ffffff;
+        }
+
+        .metric-row {
+            display: flex;
+            align-items: center;
+            padding: 16px 14px;
+            border-radius: 12px;
+            margin-bottom: 6px;
+            transition: background-color 0.2s ease;
+            position: relative;
+            z-index: 1;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .metric-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .metric-row:hover {
+            background-color: #f8fafc;
+        }
+
+        .metric-icon-wrapper {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-right: 14px;
+            transition: transform 0.2s ease;
+        }
+
+        .metric-row:hover .metric-icon-wrapper {
+            transform: scale(1.08);
+        }
+
+        .client-card .metric-icon-wrapper {
+            background: var(--client-accent-light);
+            color: var(--client-accent);
+        }
+
+        .industry-card .metric-icon-wrapper {
+            background: var(--industry-accent-light);
+            color: var(--industry-accent);
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: #6b7280;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 2px;
+        }
+
+        .metric-value {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #1a1d23;
+            line-height: 1.3;
+        }
+
+        .client-card .metric-value {
+            color: #0f3c5e;
+        }
+
+        /* YES / NO badges */
+        .badge-yes {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #d1fae5;
+            color: #065f46;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 5px 14px;
+            border-radius: 50px;
+            letter-spacing: 0.02em;
+        }
+
+        .badge-no {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #fee2e2;
+            color: #991b1b;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 5px 14px;
+            border-radius: 50px;
+            letter-spacing: 0.02em;
+        }
+
+        .badge-yes i,
+        .badge-no i {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* VS Badge - Desktop */
+        .vs-badge-desktop {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--vs-gradient-start), var(--vs-gradient-end));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 900;
+            font-size: 1.1rem;
+            letter-spacing: 0.06em;
+            box-shadow: 0 8px 28px rgba(13, 71, 161, 0.35), 0 0 0 8px rgba(13, 71, 161, 0.06);
+            position: relative;
+            z-index: 10;
+            flex-shrink: 0;
+            animation: vsPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes vsPulse {
+            0%,
+            100% {
+                box-shadow: 0 8px 28px rgba(13, 71, 161, 0.35), 0 0 0 8px rgba(13, 71, 161, 0.06);
+            }
+            50% {
+                box-shadow: 0 12px 36px rgba(13, 71, 161, 0.45), 0 0 0 16px rgba(13, 71, 161, 0.02);
+            }
+        }
+
+        /* VS Divider - Mobile */
+        .vs-divider-mobile {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            width: 100%;
+            padding: 0 8px;
+        }
+
+        .vs-divider-mobile .line {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #cbd5e1, transparent);
+            border-radius: 1px;
+        }
+
+        .vs-divider-mobile .vs-text {
+            font-weight: 900;
+            font-size: 0.95rem;
+            letter-spacing: 0.08em;
+            color: #1a6bcc;
+            background: #ffffff;
+            padding: 8px 22px;
+            border-radius: 50px;
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            white-space: nowrap;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 767.98px) {
+            .comparison-section {
+                padding: 40px 0;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .comparison-card {
+                padding: 22px 16px;
+                border-radius: 16px;
+            }
+
+            .metric-row {
+                padding: 12px 10px;
+            }
+
+            .metric-icon-wrapper {
+                width: 38px;
+                height: 38px;
+                border-radius: 10px;
+                margin-right: 10px;
+            }
+
+            .metric-value {
+                font-size: 1rem;
+            }
+
+            .metric-label {
+                font-size: 0.72rem;
+            }
+
+            .card-header-badge {
+                font-size: 0.75rem;
+                padding: 8px 16px;
+                margin-bottom: 20px;
+            }
+
+            .vs-divider-mobile {
+                margin: 8px 0;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .vs-badge-desktop {
+                width: 56px;
+                height: 56px;
+                font-size: 0.9rem;
+            }
+
+            .comparison-card {
+                padding: 24px 18px;
+            }
+
+            .metric-icon-wrapper {
+                width: 38px;
+                height: 38px;
+                margin-right: 10px;
+            }
+
+            .metric-value {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="comparison-section">
+        <div class="container">
+            <!-- Section Heading -->
+            <div class="text-center mb-5">
+                <span class="section-badge">Performance Metrics</span>
+                <h2 class="section-title">Client vs Industry Average</h2>
+                <p class="section-subtitle">See how our results stack up against typical industry benchmarks</p>
+            </div>
+
+            <!-- Desktop Layout: md and up -->
+            <div class="row align-items-center d-none d-md-flex">
+                <!-- Client Column -->
+                <div class="col-md-5">
+                    <div class="comparison-card client-card">
+                        <span class="card-header-badge">
+                            <i data-lucide="star" style="width:16px;height:16px;"></i> Client
+                        </span>
+
+                        <!-- Metric 1: Years of Experience -->
+                        <div class="metric-row">
+                            <div class="metric-icon-wrapper">
+                                <i data-lucide="briefcase" style="width:20px;height:20px;"></i>
+                            </div>
+                            <div>
+                                <div class="metric-label">Years of Experience</div>
+                                <div class="metric-value">50+</div>
+                            </div>
+                        </div>
+
+                        <!-- Metric 2: Properties Sold -->
+                        <div class="metric-row">
+                            <div class="metric-icon-wrapper">
+                                <i data-lucide="home" style="width:20px;height:20px;"></i>
+                            </div>
+                            <div>
+                                <div class="metric-label">Properties Sold Per Year</div>
+                                <div class="metric-value">190+</div>
+                            </div>
+                        </div>
+
+                        <!-- Metric 3: People Helped -->
+                        <div class="metric-row">
+                            <div class="metric-icon-wrapper">
+                                <i data-lucide="users" style="width:20px;height:20px;"></i>
+                            </div>
+                            <div>
+                                <div class="metric-label">People Helped</div>
+                                <div class="metric-value">5,000+</div>
+                            </div>
+                        </div>
+
+                        <!-- Metric 4: Sale Success -->
+                        <div class="metric-row">
+                            <div class="metric-icon-wrapper">
+                                <i data-lucide="badge-check" style="width:20px;height:20px;"></i>
+                            </div>
+                            <div>
+                                <div class="metric-label">Sale Success</div>
+                                <div class="metric-value">98%</div>
+                            </div>
+                        </div>
+
+                        <!-- Metric 5: List Price to Sales Price -->
+                        <div class="metric-row">
+                            <div class="metric-icon-wrapper">
+                                <i data-lucide="target" style="width:20px;height:20px;"></i>
+                            </div>
+                            <div>
+                                <div class="metric-label">List Price to Sales Price</div>
+                                <div class="metric-value">104%</div>
+                            </div>
+                        </div>
+
+                        <!-- Metric 6: Coaching & Training -->
+                        <div class="metric-row">
+                            <div class="metric-icon-wrapper">
+                                <i data-lucide="graduation-cap" style="width:20px;height:20px;"></i>
+                            </div>
+                            <div>
+                                <div class="metric-label">Coaching &amp; Training</div>
+                                <div class="metric-value">
+                                    <span class="badge-yes">
+                                        <i data-lucide="check-circle"></i> YES
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VS Badge Center (Desktop) -->
+                <div class="col-md-2 d-flex justify-content-center align-items-center">
+                    <div class="vs-badge-desktop">VS</div>
+                </div>
+
+                <!-- Industry Column -->
+                <div class="col-md-5">
+                    <div class="comparison-card industry-card">
+                        <span class="card-header-badge">
+                            <i data-lucide="bar-chart-3" style="width:16px;height:16px;"></i> Industry Average
+                        </span>
+
+                        <!-- Metric 1: Years of Experience -->
+                        <div class="metric-row">
+                            <div class="metric-icon-wrapper">
+                                <i data-lucide="briefcase" style="width:20px;height:20px;"></i>
+                            </div>
+                            <div>
+                                <div class="metric-label">Years of Experience</div>
+                                <div class="metric-value">3</div>
+                            </div>
+                        </div>
+
+                        <!-- Metric 2: Properties Sold -->
+                        <div class="metric-row">
+                            <div class="metric-icon-wrapper">
+                                <i data-lucide="home" style="width:20px;height:20px;"></i>
+                            </div>
+                            <div>
+                                <div class="metric-label">Properties Sold Per Year</div>
+                                <div class="metric-value">3</div>
+                            </div>
+                        </div>
+
+                        <!-- Metric 3: People Helped -->
+                        <div class="metric-row">
+                            <div class="metric-icon-wrapper">
+                                <i data-lucide="users" style="width:20px;height:20px;"></i>
+                            </div>
+                            <div>
+                                <div class="metric-label">People Helped</div>
+                                <div class="metric-value">9</div>
+                            </div>
+                        </div>
+
+                        <!-- Metric 4: Sale Success -->
+                        <div class="metric-row">
+                            <div class="metric-icon-wrapper">
+                                <i data-lucide="badge-check" style="width:20px;height:20px;"></i>
+                            </div>
+                            <div>
+                                <div class="metric-label">Sale Success</div>
+                                <div class="metric-value">60%</div>
+                            </div>
+                        </div>
+
+                        <!-- Metric 5: List Price to Sales Price -->
+                        <div class="metric-row">
+                            <div class="metric-icon-wrapper">
+                                <i data-lucide="target" style="width:20px;height:20px;"></i>
+                            </div>
+                            <div>
+                                <div class="metric-label">List Price to Sales Price</div>
+                                <div class="metric-value">92%</div>
+                            </div>
+                        </div>
+
+                        <!-- Metric 6: Coaching & Training -->
+                        <div class="metric-row">
+                            <div class="metric-icon-wrapper">
+                                <i data-lucide="graduation-cap" style="width:20px;height:20px;"></i>
+                            </div>
+                            <div>
+                                <div class="metric-label">Coaching &amp; Training</div>
+                                <div class="metric-value">
+                                    <span class="badge-no">
+                                        <i data-lucide="x-circle"></i> NO
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Layout: below md -->
+            <div class="d-md-none">
+                <!-- Client Card -->
+                <div class="comparison-card client-card mb-2">
+                    <span class="card-header-badge">
+                        <i data-lucide="star" style="width:16px;height:16px;"></i> Client
+                    </span>
+
+                    <div class="metric-row">
+                        <div class="metric-icon-wrapper">
+                            <i data-lucide="briefcase" style="width:20px;height:20px;"></i>
+                        </div>
+                        <div>
+                            <div class="metric-label">Years of Experience</div>
+                            <div class="metric-value">50+</div>
+                        </div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-icon-wrapper">
+                            <i data-lucide="home" style="width:20px;height:20px;"></i>
+                        </div>
+                        <div>
+                            <div class="metric-label">Properties Sold Per Year</div>
+                            <div class="metric-value">190+</div>
+                        </div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-icon-wrapper">
+                            <i data-lucide="users" style="width:20px;height:20px;"></i>
+                        </div>
+                        <div>
+                            <div class="metric-label">People Helped</div>
+                            <div class="metric-value">5,000+</div>
+                        </div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-icon-wrapper">
+                            <i data-lucide="badge-check" style="width:20px;height:20px;"></i>
+                        </div>
+                        <div>
+                            <div class="metric-label">Sale Success</div>
+                            <div class="metric-value">98%</div>
+                        </div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-icon-wrapper">
+                            <i data-lucide="target" style="width:20px;height:20px;"></i>
+                        </div>
+                        <div>
+                            <div class="metric-label">List Price to Sales Price</div>
+                            <div class="metric-value">104%</div>
+                        </div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-icon-wrapper">
+                            <i data-lucide="graduation-cap" style="width:20px;height:20px;"></i>
+                        </div>
+                        <div>
+                            <div class="metric-label">Coaching &amp; Training</div>
+                            <div class="metric-value">
+                                <span class="badge-yes">
+                                    <i data-lucide="check-circle"></i> YES
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VS Divider (Mobile) -->
+                <div class="vs-divider-mobile my-3">
+                    <span class="line"></span>
+                    <span class="vs-text">VS</span>
+                    <span class="line"></span>
+                </div>
+
+                <!-- Industry Card -->
+                <div class="comparison-card industry-card mt-2">
+                    <span class="card-header-badge">
+                        <i data-lucide="bar-chart-3" style="width:16px;height:16px;"></i> Industry Average
+                    </span>
+
+                    <div class="metric-row">
+                        <div class="metric-icon-wrapper">
+                            <i data-lucide="briefcase" style="width:20px;height:20px;"></i>
+                        </div>
+                        <div>
+                            <div class="metric-label">Years of Experience</div>
+                            <div class="metric-value">3</div>
+                        </div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-icon-wrapper">
+                            <i data-lucide="home" style="width:20px;height:20px;"></i>
+                        </div>
+                        <div>
+                            <div class="metric-label">Properties Sold Per Year</div>
+                            <div class="metric-value">3</div>
+                        </div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-icon-wrapper">
+                            <i data-lucide="users" style="width:20px;height:20px;"></i>
+                        </div>
+                        <div>
+                            <div class="metric-label">People Helped</div>
+                            <div class="metric-value">9</div>
+                        </div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-icon-wrapper">
+                            <i data-lucide="badge-check" style="width:20px;height:20px;"></i>
+                        </div>
+                        <div>
+                            <div class="metric-label">Sale Success</div>
+                            <div class="metric-value">60%</div>
+                        </div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-icon-wrapper">
+                            <i data-lucide="target" style="width:20px;height:20px;"></i>
+                        </div>
+                        <div>
+                            <div class="metric-label">List Price to Sales Price</div>
+                            <div class="metric-value">92%</div>
+                        </div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-icon-wrapper">
+                            <i data-lucide="graduation-cap" style="width:20px;height:20px;"></i>
+                        </div>
+                        <div>
+                            <div class="metric-label">Coaching &amp; Training</div>
+                            <div class="metric-value">
+                                <span class="badge-no">
+                                    <i data-lucide="x-circle"></i> NO
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest">
+    </script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

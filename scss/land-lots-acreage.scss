@@ -4,6 +4,7 @@
 @include mixins.fixing-header;
 @include mixins.fixings;
 @include mixins.title-strip;
+@include mixins.fixing-h2-title;
 
 .md-cta.layout5 {
   padding-block: 30px !important;
