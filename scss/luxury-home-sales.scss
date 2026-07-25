@@ -1,13 +1,18 @@
 @use 'mixins';
 
-@include mixins.fixing-header;
-@include mixins.fixings;
+@include mixins.top-banner;
+@include mixins.md-banner-layout2;
+@include mixins.md-cta-layout5;
+@include mixins.md-cta-layout14;
 @include mixins.title-strip;
-@include mixins.fixing-h2-title;
+@include mixins.fixing-title-in-lofty-sections;
 
-.md-banner.layout1 + .md-custom-code.html-code {
-  background-color: var(--we-blue);
-  padding-block: calc(2rem + 1vw);
+.md-banner.layout1 {
+  .single-picture {
+    @media(min-width: 601px) {
+      background-position-y: 110% !important;
+    }
+  }
 }
 
 .md-cta.layout5 {

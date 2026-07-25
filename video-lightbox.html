@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>YouTube video lightbox</title>
+<style>
+  :root {
+    --gap: 16px;
+    --radius: 10px;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, sans-serif;
+    background: #111;
+    color: #eee;
+    margin: 0;
+    padding: 40px 20px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--gap);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .thumb {
+    position: relative;
+    border: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+  }
+
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .thumb .play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .thumb .play svg {
+    width: 56px;
+    height: 56px;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,.5));
+  }
+
+  .thumb:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+  }
+
+  /* dialog */
+  dialog#lightbox {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    max-width: 90vw;
+    width: 900px;
+  }
+
+  dialog#lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.85);
+  }
+
+  .player-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .player-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: -44px;
+    right: 0;
+    background: none;
+    border: 0;
+    color: #fff;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 6px;
+  }
+
+  .close-btn:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Click a thumbnail to play</h1>
+
+<div class="grid">
+  <button class="thumb" data-video-id="dQw4w9WgXcQ" aria-label="Play video: Rick Astley, Never Gonna Give You Up">
+    <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="" loading="lazy">
+    <span class="play" aria-hidden="true">
+      <svg viewBox="0 0 68 48"><path d="M66.5 7.7c-.8-2.9-2.5-5.1-5.4-6C55.8.3 34 0 34 0S12.2.3 6.9 1.7c-2.9.9-4.6 3.1-5.4 6C0 13 0 24 0 24s0 11 1.5 16.3c.8 2.9 2.5 5 5.4 5.9C12.2 47.7 34 48 34 48s21.8-.3 27.1-1.8c2.9-.9 4.6-3 5.4-5.9C68 35 68 24 68 24s0-11-1.5-16.3z" fill="red"/><path d="M45 24 27 14v20z" fill="#fff"/></svg>
+    </span>
+  </button>
+
+  <button class="thumb" data-video-id="jNQXAC9IVRw" aria-label="Play video: first YouTube video, Me at the zoo">
+    <img src="https://img.youtube.com/vi/jNQXAC9IVRw/hqdefault.jpg" alt="" loading="lazy">
+    <span class="play" aria-hidden="true">
+      <svg viewBox="0 0 68 48"><path d="M66.5 7.7c-.8-2.9-2.5-5.1-5.4-6C55.8.3 34 0 34 0S12.2.3 6.9 1.7c-2.9.9-4.6 3.1-5.4 6C0 13 0 24 0 24s0 11 1.5 16.3c.8 2.9 2.5 5 5.4 5.9C12.2 47.7 34 48 34 48s21.8-.3 27.1-1.8c2.9-.9 4.6-3 5.4-5.9C68 35 68 24 68 24s0-11-1.5-16.3z" fill="red"/><path d="M45 24 27 14v20z" fill="#fff"/></svg>
+    </span>
+  </button>
+
+  <button class="thumb" data-video-id="9bZkp7q19f0" aria-label="Play video: Psy, Gangnam Style">
+    <img src="https://img.youtube.com/vi/9bZkp7q19f0/hqdefault.jpg" alt="" loading="lazy">
+    <span class="play" aria-hidden="true">
+      <svg viewBox="0 0 68 48"><path d="M66.5 7.7c-.8-2.9-2.5-5.1-5.4-6C55.8.3 34 0 34 0S12.2.3 6.9 1.7c-2.9.9-4.6 3.1-5.4 6C0 13 0 24 0 24s0 11 1.5 16.3c.8 2.9 2.5 5 5.4 5.9C12.2 47.7 34 48 34 48s21.8-.3 27.1-1.8c2.9-.9 4.6-3 5.4-5.9C68 35 68 24 68 24s0-11-1.5-16.3z" fill="red"/><path d="M45 24 27 14v20z" fill="#fff"/></svg>
+    </span>
+  </button>
+</div>
+
+<dialog id="lightbox">
+  <button class="close-btn" id="close-btn" aria-label="Close video">&times;</button>
+  <div class="player-wrap">
+    <iframe id="player"
+      src=""
+      title="YouTube video player"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+</dialog>
+
+<script>
+  const dialog = document.getElementById('lightbox');
+  const iframe = document.getElementById('player');
+  const closeBtn = document.getElementById('close-btn');
+  const thumbs = document.querySelectorAll('.thumb');
+
+  function openLightbox(videoId) {
+    // autoplay=1 only works reliably because the iframe is created/loaded
+    // right when the dialog opens, in response to a user gesture.
+    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+    dialog.showModal();
+  }
+
+  function closeLightbox() {
+    dialog.close();
+  }
+
+  thumbs.forEach(btn => {
+    btn.addEventListener('click', () => openLightbox(btn.dataset.videoId));
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+
+  // clicking the backdrop (outside the player) should close it too
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog) closeLightbox();
+  });
+
+  // this is the part that actually stops playback: clearing src
+  // unloads the YouTube player. Just calling dialog.close() alone
+  // leaves the video (and its audio) running in the background.
+  dialog.addEventListener('close', () => {
+    iframe.src = '';
+  });
+</script>
+
+</body>
+</html>

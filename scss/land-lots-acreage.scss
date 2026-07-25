@@ -1,10 +1,11 @@
 @use 'mixins';
 
 
-@include mixins.fixing-header;
-@include mixins.fixings;
+@include mixins.top-banner;
+//@include mixins.fixings;
+@include mixins.md-banner-layout2;
 @include mixins.title-strip;
-@include mixins.fixing-h2-title;
+@include mixins.fixing-title-in-lofty-sections;
 
 .md-cta.layout5 {
   padding-block: 30px !important;

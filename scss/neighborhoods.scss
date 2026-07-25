@@ -1,8 +1,8 @@
 @use 'mixins';
 
-@include mixins.fixing-header;
-@include mixins.fixing-h2-title;
-@include mixins.title-eyebrow;
+@include mixins.top-banner;
+//@include mixins.fixing-h2-title;
+//@include mixins.title-eyebrow;
 
 .md-banner.layout1 + .md-custom-code.html-code {
   @include mixins.featured-areas;

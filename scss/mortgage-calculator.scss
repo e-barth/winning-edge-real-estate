@@ -1,6 +1,6 @@
 @use 'mixins';
 
-@include mixins.fixing-header;
+@include mixins.top-banner;
 
 .md-calculator.mortgage {
   padding-block: var(--section-padding-block);

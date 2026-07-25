@@ -1,0 +1,39 @@
+@use 'mixins';
+
+@include mixins.top-banner;
+@include mixins.title-strip;
+@include mixins.md-content-layout6 ;
+
+.md-banner.layout1 {
+  .single-picture {
+    @media(min-width: 601px) {
+      background-position-y: 170% !important;
+    }
+  }
+}
+
+.md-banner.layout1 + .md-custom-code {
+  background-color: var(--we-blue);
+  padding-block: var(--section-padding-block-sm);
+}
+.title-strip {
+  h2 {
+    font-size: clamp(1.2rem, 2.7vw, 1.7rem) !important;
+  }
+}
+
+.md-content.layout6 {
+  .f-col {
+    @media (min-width: 1200px) {
+      width: 100% !important;
+      max-width: 1000px !important;
+    }
+  }
+  .site-title {
+    text-align: center;
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem) !important;
+    }
+  }
+  
+}

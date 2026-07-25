@@ -1,16 +1,17 @@
 @use 'mixins';
-@use 'standard-content-style';
 
-@include mixins.fixing-header;
-@include mixins.fixing-h2-title;
+@include mixins.top-banner;
+@include mixins.fixing-title-in-lofty-sections;
 @include mixins.title-strip;
+@include mixins.title-wrapper;
+@include mixins.section-title-eyebrow;
+@include mixins.accordion;
+@include mixins.md-banner-layout2;
 
-.md-custom-code.html-code:not(.md-header.layout2 + .md-custom-code.html-code) {
-  padding-block: var(--section-padding-block);
-}
-
-.md-banner.layout1 + .md-custom-code.html-code {
+// FREE HOME EVALUATION
+[data-uuid="22cc25de-e8c8-4865-802d-5550eae2e03d"] {
   background-color: #fff;
+  padding-block: var(--section-padding-block);
   .f-col {
     max-width: 1000px; 
   }
@@ -31,12 +32,15 @@
       min-width: 200px;
       height: 50px;
       line-height: 50px;
+      text-transform: uppercase;
     }
   }
 }
 
-.md-banner.layout1 + .md-custom-code.html-code + .md-custom-code.html-code {
-  background-color: #fafafa;
+// WINNING EDGE MARKETING STRATEGY
+[data-uuid="a61f2d36-1684-45a5-9432-ea6659830af8"] {
+  background-color: #f8f8f8 !important;
+  padding-block: var(--section-padding-block);  
 }
 
 #marketing-strategy {  
@@ -47,24 +51,24 @@
     margin-inline: auto;
     margin-bottom: 3rem !important;
   }
-  h2 {    
-    color: #444;      
-    margin-bottom: 2.5rem;
+  // h2 {    
+  //   color: #444;      
+  //   margin-bottom: 2.5rem;
 
-    span {
-      font-family: font-Lato-700;
-      color: var(--we-red);
-      font-size: .45em !important;
-      display: block;
-      margin-bottom: 1.5rem;
-    }
-  } 
-  .lead {
-    font-size: 1.05rem;
-    text-align: center;
-    margin-bottom: 50px;
-    color: #777;
-  }
+  //   span {
+  //     font-family: font-Lato-700;
+  //     color: var(--we-red);
+  //     font-size: .45em !important;
+  //     display: block;
+  //     margin-bottom: 1.5rem;
+  //   }
+  // } 
+  // .lead {
+  //   font-size: 1.05rem;
+  //   text-align: center;
+  //   margin-bottom: 50px;
+  //   color: #777;
+  // }
   .row {
     --gap-x: 8px;
     --gap-y: 10px;
@@ -107,7 +111,7 @@
         font-family: font-Lato-400;
         font-size: 1.1rem;
         line-height: 1.3;
-        text-transform: uppercase;
+        //text-transform: uppercase;
         text-align: center;
         position: relative;
         padding-top: 44px;
@@ -128,26 +132,78 @@
   }
 }
 
-.md-banner.layout1 + .md-custom-code.html-code + .md-custom-code.html-code + .md-custom-code.html-code {
-  background-color: var(--we-blue);
+// Estate Sale & Home Preparation Guide
+.md-banner + .md-custom-code + .md-custom-code  + .md-custom-code {
+  background-color: var(--we-red);
   padding-block: calc(2rem + 1vw);
+  // .title-strip {
+  //   max-width: 100% !important;
+  // }
 }
 
-.full-service-estate-liquidation {
-  @include mixins.section-service-estate-liquidation;
+.md-banner + .md-custom-code + .md-custom-code  + .md-custom-code  + .md-custom-code {
+  padding-block: var(--section-padding-block-sm);
+  .site-p {
+    max-width: 1000px;
+    margin-inline: auto;
+    text-align: center;
+    p {
+      line-height: 1.65;
+      @media(min-width: 576px) {
+        font-size: 1.05rem;
+      }
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
 }
 
-.md-custom-code.html-code + .md-cta.layout1 {
-  .banner {
-    padding-block: var(--section-padding-block);
-  }  
+// Click Here To Learn More About Full Service Estate Liquidation
+.accordion {
+  @media(min-width: 768px) {
+    .two-col-list {
+      display: flex;
+      flex-flow: row wrap;
+      li {
+        width: 50%;
+        padding-right: 1.5rem;
+      }
+    }
+  }
+  .three-col-list {
+    @media(min-width: 768px) {
+      display: flex;
+      flex-flow: row wrap;
+      li {
+        display: inline-block;
+        width: 300px;
+        padding-right: 1.5rem;
+      }
+    }
+  }
+  .btn-item {
+    margin: 2rem auto 0;
+    font-size: 16px;
+    min-width: 200px;
+    height: 50px;
+    line-height: 50px;
+  }
 }
 
-.md-cta.layout1 + .md-custom-code.html-code {
-  .mg-container {
-    padding: 15px;
-    @media(max-width: 600px) {
-      width: 100% !important;
+.md-banner.layout2 {
+  .site-title {
+    margin-bottom: 1rem !important;
+  }
+  .site-p {
+    p + h3 {
+      margin-top: 2rem;
+    }
+    h3 {
+      font-family: var(--mg-title-font);
+      font-size: clamp(1.5rem, 2.7vw, 2.3rem) !important;
+      line-height: 1 !important;
+      margin-bottom: 1rem !important;
     }
   }
 }

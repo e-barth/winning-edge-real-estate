@@ -1,9 +1,12 @@
 @use 'mixins';
 
-@include mixins.fixing-header;
-@include mixins.fixings;
+@include mixins.top-banner;
+//@include mixins.fixings;
+@include mixins.md-banner-layout2;
+@include mixins.md-cta-layout9;
+@include mixins.md-cta-layout14;
 @include mixins.title-strip;
-@include mixins.fixing-h2-title;
+@include mixins.fixing-title-in-lofty-sections;
 
 .md-banner.layout1 + .md-custom-code.html-code,
 .md-cta.layout9 + .md-custom-code.html-code,

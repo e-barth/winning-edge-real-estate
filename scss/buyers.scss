@@ -1,10 +1,10 @@
 @use 'mixins';
 @use 'standard-content-style';
 
-@include mixins.fixing-header;
-@include mixins.fixing-h2-title;
-@include mixins.title-eyebrow;
-@include mixins.title-strip;
+@include mixins.top-banner;
+//@include mixins.fixing-h2-title;
+//@include mixins.title-eyebrow;
+//@include mixins.title-strip;
 
 .md-custom-code.html-code:not(.md-header.layout2 + .md-custom-code.html-code) {
   padding-block: var(--section-padding-block);

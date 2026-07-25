@@ -16,6 +16,14 @@
   --we-red-hover: #c02229;
 }
 
+// BG COLORS
+.bg-blue {
+  background-color: var(--we-blue) !important;
+}
+.bg-red {
+  background-color: var(--we-red) !important;
+}
+
 // TEXT COLORS 
 .text-white {
   color: #fff !important;
@@ -70,6 +78,9 @@
           display: none !important;
         }
       }
+      @media(min-width: 992px) and (max-width: 1499px) {
+        margin-right: 10px !important;
+      }
     }
     
     [href="/tel:+1410-461-2800"] {
@@ -86,17 +97,32 @@
       }
     }
 
-    .submenu {
-      padding-bottom: .5rem;
+    .submenu {      
       .menu-item {
+        &:not(:first-child) {
+          border-top: 1px solid rgba(#000, .05)
+        }
         a {
+          font-family: font-Manrope-700;
           text-transform: uppercase;
+        }
+        &:hover {
+          background-color: var(--we-red) !important;
+          a {
+            color: #fff;
+          }
         }
       }
     }
   }
 }
 
+.md-header.layout2 {
+  position: fixed;
+  .header-bg {
+    background: transparent !important;
+  }
+}
 
 // FOOTER
 
@@ -116,6 +142,24 @@
   .main-menu {
     .footer-submenu {
       display: flex !important;
+    }
+    [href="/tel:+1410-461-2800"] {
+      display: none !important;
+    }
+  }
+  .detail-phone {
+    a {
+      position: relative;
+      margin-left: -.85rem;
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: #191919;
+        width: .85rem;
+        height: 100%;
+      }
     }
   }
   .share-links {
@@ -148,5 +192,3 @@
     }
   }
 }
-
-@include mixins.agent-details;

@@ -1,11 +1,8 @@
 .banner {
-  padding-block: var(--section-padding-block);
-  @media(min-width: 768px) {
-    min-height: 400px !important;
-  }
-  @media(max-width: 767px) {
-    min-height: unset !important;
-    aspect-ratio: 16/9;
+  padding-block: var(--section-padding-block) !important;
+  min-height: 350px !important;  
+  @media(max-width: 575px) {
+    min-height: 240px !important;
   }
   .single-picture {
     background-image: url("https://cdn.lofty.com/image/fs/844773431365048/website/174974/cmsbuild/202663_0ad88048167e4942-jpeg.webp") !important;

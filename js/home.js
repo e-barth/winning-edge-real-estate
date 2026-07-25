@@ -1,22 +1,34 @@
-function moveContent1() {
-  const target = document.querySelector('.banner-button-v2');
-  const content = document.querySelector('.md-search-more-center');
+function replaceBannerBtnLinks() {
+  const list = document.querySelector('.tab-header');
+  if (!list) {
+    return;
+  }
+
+  const htmlString = `
+    <ul>
+      <li>
+        <a class="btn" href="/sellers">Sell Your Home</a>
+      </li>
+      <li>
+        <a class="btn" href="/listing">Map Search</a>
+      </li>
+      <li>
+        <a class="btn" href="/instant-cash-offer">Instant Cash Offer</a>
+      </li>
+    </ul>
+  `;
+  list.insertAdjacentHTML('beforeend', htmlString);
+}
+
+function replaceListingLink() {
+  const link = document.querySelector('a[href$="/listing?searchId=xQKAH_2eObMq"]');
   
-  if (target && content) {
-    target.insertAdjacentElement('afterend', content);
+  if (link) {
+    link.href = '/featured';
   }
 }
 
-function moveContent2() {
-  const content = document.querySelector('#reach-out');
-  const target = document.querySelector('.md-video.layout1 .title-wrap .site-p');
-  
-  if (target && content) {
-    target.insertAdjacentElement('afterend', content);
-  }
-}
-
-window.addEventListener('load', () => {
-  moveContent1();
-  moveContent2();
+window.addEventListener('load', () => {  
+  replaceBannerBtnLinks();
+  replaceListingLink();  
 });

@@ -1,9 +1,15 @@
 @use 'mixins';
 
-@include mixins.fixing-header;
-@include mixins.fixing-h2-title;
-@include mixins.title-strip;
-@include mixins.title-eyebrow;
+@include mixins.top-banner;
+//@include mixins.fixing-h2-title;
+//@include mixins.title-strip;
+//@include mixins.title-eyebrow;
+
+.md-banner.layout1 {
+  .banner {
+    padding-bottom: 7rem;
+  }
+}
 
 .md-cta.layout7 {
   padding-block: 0 var(--section-padding-block-sm) !important;
