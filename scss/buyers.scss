@@ -1,52 +1,27 @@
 @use 'mixins';
-@use 'standard-content-style';
+@use 'standard-content-buyers';
 
 @include mixins.top-banner;
-//@include mixins.fixing-h2-title;
-//@include mixins.title-eyebrow;
-//@include mixins.title-strip;
+@include mixins.title-wrapper;
+@include mixins.section-title-eyebrow;
 
-.md-custom-code.html-code:not(.md-header.layout2 + .md-custom-code.html-code) {
-  padding-block: var(--section-padding-block);
-}
-
-.md-banner.layout1 {
-  .single-picture {
-    background-position: 50% 100%;
+.site.blank .md-header.layout2.transparent {
+  .header-bg {
+    background-color: var(--we-blue) !important;
   }
 }
 
-.md-banner.layout1 + .md-custom-code.html-code {
+.md-custom-code + .md-custom-code {
+  //background-color: #f8f8f8;
+  padding-block: calc(var(--section-padding-block) + 100px) var(--section-padding-block) !important;
   .mg-container {
-    padding: 15px;
-    @media(max-width: 600px) {
-      width: 100% !important;
-    }
+    --padding-for-shadow: 12px;
+    --module-width: calc(1512px + var(--padding-for-shadow));
   }
 }
-
-.md-banner.layout1 + .md-custom-code.html-code,
-.md-cta.layout1 + .md-custom-code.html-code {
-  .mg-container {
-    padding: 15px;
-    @media(max-width: 600px) {
-      width: 100% !important;
-    }
+.buyers-guide {
+  padding-inline: var(--padding-for-shadow);
+  ul {
+    @include mixins.check-style-list--red-outline;
   }
 }
-
-.md-custom-code.html-code + .md-cta.layout1 {
-  .banner {
-    min-height: unset !important;
-    padding-block: var(--section-padding-block);
-  }
-}
-
-.md-custom-code.html-code + .md-custom-code.html-code {
-  background-color: var(--we-blue);
-  padding-block: calc(2rem + 1vw) !important;
-}
-
-@include mixins.testimonials;  
-
-@include mixins.cta-layout-13;

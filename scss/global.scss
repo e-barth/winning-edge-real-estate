@@ -46,6 +46,9 @@
   display: inline-block;
 }
 
+.no-split {
+  white-space: nowrap !important;
+}
 
 // BTNS
 .banner-button-v2 {
@@ -67,7 +70,7 @@
 
 // HEADER
 
-.md-header {
+.md-header.layout2  {
   .logo {
     margin-block: 0;
   }
@@ -81,9 +84,14 @@
       @media(min-width: 992px) and (max-width: 1499px) {
         margin-right: 10px !important;
       }
+      a {
+      @media(max-width: 767px) {
+        color: #111;
+      }
+      }
     }
     
-    [href="/tel:+1410-461-2800"] {
+    [href="tel:+1410-461-2800"] {
       border: 1px solid #fff;
       padding: .8rem 1rem !important;
       display: flex !important;
@@ -94,7 +102,17 @@
       &:hover {
         background-color: #fff;
         color: #222;
-      }
+      }     
+      @media(max-width: 767px) {
+        border: none;
+        background-color: var(--we-red) !important;
+        color: #fff !important;
+        font-size: 1.2rem !important;
+        margin: 10px 15px !important;
+        &:hover {
+          background-color: var(--we-red-hover) !important;
+        }
+      } 
     }
 
     .submenu {      
@@ -117,10 +135,22 @@
   }
 }
 
-.md-header.layout2 {
-  position: fixed;
-  .header-bg {
-    background: transparent !important;
+.site.blank {
+  .md-header.layout2 {
+    position: fixed;
+    .header-bg {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)) !important;
+    }
+    &.show {
+      .header-bg {
+        background: var(--we-blue) !important;
+      }
+      .logo {        
+        img {
+          height: 1em !important; 
+        }
+      }
+    }
   }
 }
 
@@ -143,25 +173,10 @@
     .footer-submenu {
       display: flex !important;
     }
-    [href="/tel:+1410-461-2800"] {
+    [href="tel:+1410-461-2800"] {
       display: none !important;
     }
-  }
-  .detail-phone {
-    a {
-      position: relative;
-      margin-left: -.85rem;
-      &:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        background: #191919;
-        width: .85rem;
-        height: 100%;
-      }
-    }
-  }
+  }  
   .share-links {
     margin-top: 30px !important;
     .share-item {

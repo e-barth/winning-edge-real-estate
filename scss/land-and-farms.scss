@@ -1,10 +1,4 @@
 @use 'mixins';
 
 @include mixins.top-banner;
-
-.md-house.layout1 {
-  @include mixins.fixing-title-in-lofty-sections;
-  .site-title {
-    margin-bottom: 2.5rem;
-  }
-}
+@include mixins.community-page-fixings;

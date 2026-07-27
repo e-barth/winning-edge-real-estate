@@ -1,89 +1,90 @@
 @use 'mixins';
 
 @include mixins.top-banner;
-//@include mixins.fixings;
 @include mixins.md-banner-layout2;
+@include mixins.md-cta-layout1;
 @include mixins.md-cta-layout9;
 @include mixins.md-cta-layout14;
 @include mixins.title-strip;
 @include mixins.fixing-title-in-lofty-sections;
+@include mixins.accordion;
 
-.md-banner.layout1 + .md-custom-code.html-code,
-.md-cta.layout9 + .md-custom-code.html-code,
-.md-banner.layout2 + .md-custom-code.html-code {
+// WE ARE HERE TO BE YOUR REAL ESTATE RESOURCE AND TO HELP MAKE THIS CHALLENGING TASK FAR LESS STRESSFUL
+.md-cta.layout9 + .html-code {
   background-color: var(--we-blue);
   padding-block: calc(2rem + 1vw);  
 }
 
-.md-cta.layout9 {  
+// ASK ABOUT OUR HELPING HAND PROGRAM
+.md-cta.layout1 + .md-banner.layout2 + .md-banner.layout2 + .html-code {
+  background-color: var(--we-blue);
+  padding-block: calc(2rem + 1vw);  
+}
+
+// Estate Sale & Home Preparation Guide
+.md-cta.layout14 + .md-banner.layout2 + .md-banner.layout2 + .html-code {
+  background-color: var(--we-red);
+  padding-block: calc(2rem + 1vw);  
+}
+
+[data-uuid="688099b0-1ce9-4c84-964e-fd2d15915f92"] {
+  padding-block: var(--section-padding-block-sm);
   .site-p {
+    max-width: 1000px;
+    margin-inline: auto;
+    text-align: center;
     p {
       line-height: 1.65;
+      @media(min-width: 576px) {
+        font-size: 1.05rem;
+      }
       &:not(:last-child) {
         margin-bottom: 1rem;
       }
     }
   }
-  .banner-button-v2 {
-    margin-top: 1rem;
-    @media(max-width: 767px) {
-      justify-content: center !important;
+}
+
+.md-banner.layout2 + .html-code + .html-code + .html-code {
+  padding-bottom: 60px;
+  background-color: #f8f8f8;
+  @media(max-width: 767px) {
+    padding-bottom: 40px;
+  }
+  .accordion-body {
+    padding-bottom: 0 !important;
+  }
+}
+
+// Click Here To Learn More About Full Service Estate Liquidation
+.accordion {
+  @media(min-width: 768px) {
+    .two-col-list {
+      display: flex;
+      flex-flow: row wrap;
+      li {
+        width: 50%;
+        padding-right: 1.5rem;
+      }
     }
-    a {
-      min-width: 200px !important;
+  }
+  .three-col-list {
+    @media(min-width: 768px) {
+      display: flex;
+      flex-flow: row wrap;
+      li {
+        display: inline-block;
+        width: 300px;
+        padding-right: 1.5rem;
+      }
     }
   }
-}
-
-.md-cta.layout1 {
-  .banner {
-    min-height: unset !important;
-    padding-block: 90px !important;
-    @media(max-width: 600px) {
-      padding-block: 50px !important;
-    }
+  .btn-item {
+    margin: 2rem auto 0;
+    font-size: 16px;
+    min-width: 200px;
+    height: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
   }
-}
-
-.md-content.layout8 {
-  padding-bottom: 10px !important;
-}
-
-.md-content.layout8 + .md-cta.layout1 {
-  .banner {
-    padding-block: var(--section-padding-block);
-    min-height: unset !important;
-  }
-  .site-title {
-    margin-bottom: 0 !important;
-  }
-}
-
-.md-cta.layout14 {
-  .content {
-    min-height: unset !important;
-  }
-  .site-card {
-    max-width: 600px;
-    margin-inline: auto;
-  }
-  .site-title {
-    line-height: 1.1 !important;
-    text-wrap: balance;
-  }
-}
-
-#liquidation-guide {
-  scroll-margin-top: 150px;
-  @media(max-width: 600px) {
-    scroll-margin-top: 120px;
-  }
-}
-
-.md-custom-code.html-code + .md-custom-code.html-code {
-  padding-block: var(--section-padding-block);  
-}
-
-.full-service-estate-liquidation {
-  @include mixins.section-service-estate-liquidation;
 }

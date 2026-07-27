@@ -1,0 +1,16 @@
+@use 'mixins';
+
+@include mixins.top-banner;
+@include mixins.fixing-title-in-lofty-sections; 
+@include mixins.adding-eyebrow-to-lofty-title;
+@include mixins.community-page-fixings;
+@include mixins.contact-form;
+@include mixins.md-cta-layout1;
+
+[data-uuid="e36646f3-bcfd-4c9d-80dd-27d51dca3d14"] {
+  .single-picture {
+    @media(min-width: 601px) {
+      background-position-y: 120% !important;
+    }
+  }
+}

@@ -6,73 +6,42 @@
 @include mixins.md-cta-layout14;
 @include mixins.title-strip;
 @include mixins.fixing-title-in-lofty-sections;
+@include mixins.videos;
 
 .md-banner.layout1 {
   .single-picture {
     @media(min-width: 601px) {
-      background-position-y: 110% !important;
+      background-position-y: 140% !important;
     }
   }
 }
 
-.md-cta.layout5 {
-  padding-block: 30px !important;
-  .layout5-inner {
-    justify-content: center;
-  }  
-  .btn-item {
-    border: 1px solid #fff !important;
-  }  
+// Video grid
+[data-uuid="95c5a078-8da3-4c89-84e8-1a23dfeb1620"] {
+  padding-block: var(--section-padding-block);
+  background-color: #f8f8f8 !important;
 }
 
-.md-video.layout2 {
-  .title-wrap {
-    width: fit-content !important;
-    margin-inline: auto;
-    @media(min-width: 768px) {
-      margin-bottom: 52px;
-    }
-    h2 {
-      line-height: 1.1 !important;
-    }
-  }
-  .video-list {
-    height: 100% !important;
-  }
-  .video-item {
-    position: relative;
-    margin-top: 4.5rem;
-    .video-title {
-      position: absolute;
-      top: -4.5rem;
-      z-index: 2;
-      text-align: center;
-      width: 100%;
-    h3 {
-      width: 100%;
-      color: #333;
-      font-family: font-Lato-700;
-      font-size: clamp(1.15rem, 5vw, 1.25rem);
-      line-height: 1 !important;
-      text-transform: uppercase;
-      margin-bottom: .5rem;
-      
-    }
-    p {
-      width: 100%;
-      color: #444;
-    }
-    }
-    .video-content {
-      aspect-ratio: 5/3;
+.videos {
+  .grid {
+    .col {
+      flex-direction: column !important;
+      .video-caption {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        h3 {
+          text-align: center;
+          font-family: font-Lato-700;
+          text-transform: uppercase;
+          font-size: clamp(1.1rem, 5vw, 1.2rem);
+          line-height: 1.2;
+          margin-bottom: .5rem;
+        }
+        p {
+          font-size: 1rem;
+          margin-block: 0 !important;
+        }
+      }
     }
   }
 }
-
-.md-gallery.layout2 {
-  .site-title {
-    h2 {
-      line-height: 1.1 !important;
-    }
-  }
-} 

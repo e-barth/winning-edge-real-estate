@@ -3,7 +3,7 @@
 @include mixins.md-cta-layout1;
 
 .hero-banner {
-  padding-block: var(--section-padding-block);
+  padding-block: var(--section-padding-block) !important;
   height: unset !important;
   min-height: 350px;
   @media(max-width: 575px) {
@@ -47,21 +47,4 @@
     margin-bottom: 1.4rem;
     border-bottom: 1px solid rgba(#fff, .4);      
   } 
-}
-.contact-section {
-  .contact-item {
-    [href*="tel:+1"] {
-      position: relative;
-      margin-left: -0.85rem;
-      &:before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: .85rem;
-        height: 1.2rem;
-        background-color: var(--we-blue);
-      }
-    }
-  }
 }

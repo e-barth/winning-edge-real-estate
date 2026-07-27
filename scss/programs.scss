@@ -136,9 +136,6 @@
 .md-banner + .md-custom-code + .md-custom-code  + .md-custom-code {
   background-color: var(--we-red);
   padding-block: calc(2rem + 1vw);
-  // .title-strip {
-  //   max-width: 100% !important;
-  // }
 }
 
 .md-banner + .md-custom-code + .md-custom-code  + .md-custom-code  + .md-custom-code {
@@ -188,6 +185,7 @@
     min-width: 200px;
     height: 50px;
     line-height: 50px;
+    text-transform: uppercase;
   }
 }
 

@@ -7,57 +7,98 @@
   </p>
 </div>
 
-<script id="video-title-one" type="text/html" >
-  <div class="video-title">
-    <h3>
-      $7 Million Estate Aerial Video
-    </h3>
-    <p>
-      3925 Folly Quarter Road Aerial
-    </p>
+<section id="strategy-6-video-grid">
+  <div class="videos f-col">
+    <div class="grid">    
+
+      <div class="col">
+        <div class="video-caption">
+          <h3>$7 Million Estate Aerial Video</h3>
+          <p>3925 Folly Quarter Road Aerial</p>
+        </div>
+        <button class="thumb" data-video-id="lU0bNBshrD0" aria-label="Play video: Real Estate marketing video">
+          <img src="https://img.youtube.com/vi/lU0bNBshrD0/hqdefault.jpg" alt="Real Estate marketing video thumbnail" loading="lazy">
+          <span class="play" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="col">
+        <div class="video-caption">
+          <h3>$7 Million Estate Interior Video</h3>
+          <p>3925 Folly Quarter Road Interior</p>
+        </div>
+        <button class="thumb" data-video-id="_Ap-_xR_nsw" aria-label="Play video: Real Estate marketing video">
+          <img src="https://img.youtube.com/vi/_Ap-_xR_nsw/hqdefault.jpg" alt="Real Estate marketing video thumbnail" loading="lazy">
+          <span class="play" aria-hidden="true"></span>
+        </button>
+      </div>      
+
+      <div class="col">
+        <div class="video-caption">
+          <h3>$3 Million Luxury Property Video</h3>
+          <p>13509 Paternal Gift Drive</p>
+        </div>
+        <button class="thumb" data-video-id="code" aria-label="Play video: Real Estate marketing video">
+          <img src="https://img.youtube.com/vi/code/hqdefault.jpg" alt="Real Estate marketing video thumbnail" loading="lazy">
+          <span class="play" aria-hidden="true"></span>
+        </button>
+      </div>   
+
+    </div>
+
+    <dialog id="lightbox">
+      <button class="close-btn" id="close-btn" aria-label="Close video">&#10005;</button>
+      <div class="player-wrap">
+        <iframe id="player"
+          src=""
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </dialog>
   </div>
-</script>
+</section>
 
-<script id="video-title-two" type="text/html" >
-  <div class="video-title">
-    <h3>
-      $7 Million Estate Interior Video
-    </h3>
-    <p>
-      3925 Folly Quarter Road Interior
-    </p>
-  </div>
-</script>
+<script>
+// Video lightbox
+function initLightbox() {
+  const dialog = document.getElementById('lightbox');
+  const iframe = document.getElementById('player');
+  const closeBtn = document.getElementById('close-btn');
+  const thumbs = document.querySelectorAll('.thumb');
 
-<script id="video-title-three" type="text/html" >
-  <div class="video-title">
-    <h3>
-      $3 Million Luxury Property Video
-    </h3>
-    <p>
-      13509 Paternal Gift Drive
-    </p>
-  </div>
-</script>
+  if (!dialog || !iframe || !closeBtn) {
+    return;
+  }
 
-<script async>   
-  function addVideoTitles() {
-    const videoTitles = [
-      ['.md-video .swiper-wrapper .video-item:nth-of-type(1) .video-content', '#video-title-one'],
-      ['.md-video .swiper-wrapper .video-item:nth-of-type(2) .video-content', '#video-title-two'],
-      ['.md-video .swiper-wrapper .video-item:nth-of-type(3) .video-content', '#video-title-three']
-    ];
+  function openLightbox(videoId) {
+    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+    dialog.showModal();
+  }
 
-    videoTitles.forEach(([videoSelector, titleSelector]) => {
-      const video = document.querySelector(videoSelector);
-      const title = document.querySelector(titleSelector);
+  function closeLightbox() {
+    dialog.close();
+  }
 
-      if (video && title) {
-        video.insertAdjacentHTML('beforebegin', title.innerHTML);
-      }
-    });
-  }   
-  window.addEventListener('load',() => {   
-    setTimeout(addVideoTitles, 500);    
+  thumbs.forEach((btn) => {
+    btn.addEventListener('click', () => openLightbox(btn.dataset.videoId));
   });
+
+  closeBtn.addEventListener('click', closeLightbox);
+
+  dialog.addEventListener('click', (e) => {
+    if (e.target === dialog) {
+      closeLightbox();
+    }
+  });
+
+  dialog.addEventListener('close', () => {
+    iframe.src = '';
+  });
+}
+
+window.addEventListener('load', () => {  
+  initLightbox();
+});
 </script>

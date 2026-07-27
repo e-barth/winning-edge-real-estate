@@ -4,6 +4,7 @@
 
 @include mixins.top-banner;
 @include mixins.md-cta-layout5;
+@include mixins.md-cta-layout1;
 @include mixins.title-strip;
 @include mixins.title-wrapper;
 @include mixins.section-title-eyebrow;  
@@ -19,7 +20,11 @@
   --bg-gradient: linear-gradient(180deg, #f8fafb 0%, #eef2f6 100%);
 }
 
-.md-custom-code.html-code:not(.md-header.layout2 + .md-custom-code.html-code) {
+[data-uuid="254d03f6-8ec4-4cd1-a041-81e93fceb033"], 
+[data-uuid="6c396791-8aa3-4332-9c28-202dae977366"],
+[data-uuid="181a6a21-97cb-42de-8f47-0bea4bd0046f"],
+[data-uuid="0b00631e-907a-4b6d-a3dd-780e93f70e25"],
+[data-uuid="97cd7240-58cc-4d55-89ca-e1d40425065b"] {
   padding-block: var(--section-padding-block);
   .mg-container {
     padding: 15px;
@@ -37,7 +42,8 @@
   }
 }
 
-.md-banner.layout1 + .md-custom-code.html-code {
+// Client vs Industry Average
+[data-uuid="254d03f6-8ec4-4cd1-a041-81e93fceb033"] {
   .f-col {
     max-width: 1000px; 
   }
