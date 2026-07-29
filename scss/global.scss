@@ -1,15 +1,12 @@
 @use 'mixins';
 
 :root {
-  --header-height: 104px;
   --section-padding-block: 70px;
   --section-padding-block-sm: 50px;
   @media(max-width: 575px) {
-    --header-height: 84px;
     --section-padding-block: 40px;
     --section-padding-block-sm: 30px;
   }
-
   --we-blue: #024883;
   --we-blue-hover: #054479;
   --we-red: #d3222a;
@@ -91,7 +88,7 @@
       }
     }
     
-    [href="tel:+1410-461-2800"] {
+    [href="/tel:+1410-461-2800"], [href="tel:+1410-461-2800"]  {
       border: 1px solid #fff;
       padding: .8rem 1rem !important;
       display: flex !important;
@@ -136,22 +133,7 @@
 }
 
 .site.blank {
-  .md-header.layout2 {
-    position: fixed;
-    .header-bg {
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)) !important;
-    }
-    &.show {
-      .header-bg {
-        background: var(--we-blue) !important;
-      }
-      .logo {        
-        img {
-          height: 1em !important; 
-        }
-      }
-    }
-  }
+  @include mixins.fix-header;
 }
 
 // FOOTER
@@ -173,7 +155,7 @@
     .footer-submenu {
       display: flex !important;
     }
-    [href="tel:+1410-461-2800"] {
+    [href="/tel:+1410-461-2800"] {
       display: none !important;
     }
   }  
@@ -191,10 +173,46 @@
       &:hover {
         border: 1px solid #fff;
       }
+    }    
+  }
+  .custom-icon {
+    position: relative;
+    opacity: .7;
+    &:hover {
+      opacity: 1;
+    }
+    &:before {
+      content: '';
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+  }
+  .icon-nextdoor {
+    &:before {
+      background-image: url("https://cdn.lofty.com/image/fs/844773431365048/website/174974/cmsbuild/2026728_8450bf93a5b1487e.png");
+    }
+  }
+  .icon-applemaps {
+    &:before {
+      background-image: url("https://cdn.lofty.com/image/fs/844773431365048/website/174974/cmsbuild/2026728_3d44821cb1814e39.png");
+    }
+  }
+  .icon-realtor {
+    &:before {
+      background-image: url("https://cdn.lofty.com/image/fs/844773431365048/website/174974/cmsbuild/2026728_9d69da368f204509.png");
+    }
+  }
+  .icon-bingmaps {
+    &:before {
+      background-image: url("https://cdn.lofty.com/image/fs/844773431365048/website/174974/cmsbuild/2026728_e83900a7f866463d.png");
     }
   }
   .custom-content {
-    [href="/about"] {
+    [href="/team"] {
       background-color: var(--we-red);
       padding: .75rem 1.5rem;
       margin-top: 1rem;

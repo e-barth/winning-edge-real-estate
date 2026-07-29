@@ -1,0 +1,258 @@
+@use 'mixins';
+
+@include mixins.fix-header;
+@include mixins.fixing-title-in-lofty-sections;
+@include mixins.md-cta-layout1;
+
+@mixin fix-section-titles {
+  .site-title {
+    margin-bottom: 1.7rem !important;
+    h2 {
+      text-transform: uppercase;
+    }
+  }  
+}
+
+.md-detail-info.layout1 {
+  .swiper {
+    @media(min-width: 768px) {
+      max-height: 70vh !important;
+    }
+    @media(max-width: 767px) {
+      max-height: 60vh !important;
+    }
+    background-color: #000;
+    .img-box {
+      .img-content {
+        img {
+          @media(min-width: 768px) {
+            object-fit: cover;
+            max-width: 1300px;
+            margin-inline: auto;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  .listing-detail-banner {
+    .listing-info-container {
+      max-width: 1300px;
+      margin-inline: auto;
+      padding-bottom: 1rem !important;
+      .mls-provided-container {
+        .mls-provided {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+      .info-main {
+        @media(max-width: 767px) {
+          flex-direction: column !important;
+          align-items: flex-start !important;
+        }
+      }
+      .info-left {
+        width: 100% !important;
+        @media(min-width: 768px) {
+          width: calc(100% - 340px) !important; 
+        }
+        @media(max-width: 767px) {
+          margin-bottom: 10px !important;
+        }
+        .address-container {
+          font-family: font-Lora-700;
+          .inline-address {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem) !important;
+          }
+        }
+        .price-container {
+          @media(max-width: 767px) {
+            margin-top: 5px !important;
+          }
+          .origin-price {
+            margin-top: 0 !important;
+            .price-number {
+              font-family: font-Lora-700 !important;
+              font-size: clamp(2.5rem, 7vw, 3.5rem) !important;
+            }
+          } 
+        }
+      }
+      .info-right {
+        width: 100% !important;
+        @media(min-width: 768px) {
+          width: 340px !important;
+          justify-content: flex-end;
+          .gap-line {
+            margin-inline: 3%;
+          }
+        }
+        .item-label {
+          text-transform: uppercase;
+          font-size: clamp(12px, 1.7vw, 14px) !important;
+        }
+        .item-value {
+          .num {
+            font-family: font-Lato-700;
+          }
+        }
+      }
+    }
+  }
+
+  .nav-menu-container {
+    max-width: 1300px;
+    margin-inline: auto;
+  }
+
+  .info-title {
+    color: var(--we-blue) !important;
+    font-family: font-Lora-700 !important;
+    @media(max-width: 600px) {
+      font-size: 1.4rem !important;
+    }
+  }
+  .info-label,
+  .item-label {
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.7) !important;
+    font-size: clamp(12px, 1.7vw, 14px) !important;
+    font-family: font-Lato-400;
+  }
+
+  .info-value,
+  .item-value {
+    font-family: font-Manrope-700;
+    color: rgba(0, 0, 0, 0.85) !important;    
+    line-height: 1.4 !important;
+  }
+
+  .overview-container {
+    max-width: 1300px;
+    margin-inline: auto;
+    
+    .detail-overview {
+      @media(max-width: 991px) {
+        flex-direction: column !important;
+      }
+      .overview-right {
+        @media(min-width: 992px) {
+          margin-left: 3% !important;
+        }
+        @media(min-width: 601px) and (max-width: 991px) {
+          margin-left: 0 !important;
+          margin-top: 24px;
+        }
+        .overview-desc {
+          padding-bottom: 1.75rem;
+        }
+        .overview-highlight {
+          .hight-light-info {
+            .item-info {
+              border: 1px solid rgba(0, 0, 0, 0.05);
+              padding: .5rem;
+            }
+          }
+        }
+        .overview-open-house {
+          margin-top: 1.75rem;
+          .info-title {
+            margin-bottom: 5px !important;
+          }
+    
+          .info-open-house > div {
+            font-size: 1rem !important;
+          }
+        }
+      }
+      .overview-left {
+        @media(min-width: 992px) {
+          width: 620px !important;
+        }
+        @media(max-width: 991px) {
+          width: 100% !important;
+          height: auto !important; 
+        }
+      }
+    }
+
+    .property-details-container {
+      .collapsible-section:not(.open) {
+        max-height: 440px;
+      }
+      .property-header {
+        color: var(--we-blue) !important;
+        font-family: font-Lora-700 !important;
+      }
+      .property-box {
+        &:last-of-type {
+          padding-bottom: 40px !important;
+        }
+        .property-title {
+          color: #111;
+          font-family: font-Lato-700;
+          text-transform: uppercase;
+        }
+        .property-item {
+          border: 1px solid rgba(0, 0, 0, 0.05);
+          padding: .5rem;
+        }
+      }
+      .read-more {
+        background-color: var(--we-red);
+        color: #fff;
+        text-decoration: none;
+        line-height: 1;
+        display: block;
+        padding: 1rem;
+        width: 100%;
+        left: 0;
+        &:before {
+          left: 0;
+        }
+      }
+    }
+  }
+}
+
+.md-calculator.layout1 {
+  @include fix-section-titles;
+  padding-block: var(--section-padding-block) !important;
+  .calculator-container {
+    max-width: 1300px;
+  }
+}
+
+.md-map.layout1 {
+  @include fix-section-titles;
+  .f-col {
+    max-width: 1300px
+  }
+  
+}
+
+.md-house-listing.layout1 {
+  @include fix-section-titles;
+  background-color: #fff !important;
+  padding-block: var(--section-padding-block) !important;
+  max-width: 1300px;
+  margin-inline: auto;
+  .site-title {
+    text-align: center;
+  }
+  .site-subtitle {
+    text-align: center;
+  }
+}
+
+footer {
+  .download-closely {
+    display: none !important;
+  }
+}

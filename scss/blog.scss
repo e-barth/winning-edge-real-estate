@@ -1,6 +1,8 @@
 @use 'mixins';
 
+@include mixins.fix-header;
 @include mixins.top-banner;
+@include mixins.md-cta-layout1;
 
 .blog-list.layout1 {
   .blog-card {

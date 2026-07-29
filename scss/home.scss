@@ -2,14 +2,20 @@
 
 @include mixins.title-strip;
 @include mixins.md-cta-layout1;
-//@include mixins.fixing-h2-title;
-//@include mixins.title-eyebrow;
+@include mixins.md-cta-layout5;
+@include mixins.md-cta-layout14;
+@include mixins.title-wrapper;
+@include mixins.section-title-eyebrow;  
+@include mixins.fixing-title-in-lofty-sections;
+@include mixins.adding-eyebrow-to-lofty-title;
+@include mixins.videos;
+
 
 .md-hero.layout3 {
   .banner {
     min-height: 70dvh !important;
     height: fit-content;
-    padding-block: calc(var(--section-padding-block) + var(--header-height) - 3rem) var(--section-padding-block);
+    padding-block: calc(var(--section-padding-block) + 60px) var(--section-padding-block);
   }
   .video-box {
     position: relative;
@@ -29,10 +35,12 @@
   }
   .site-title {
     font-size: unset !important;    
+    flex-direction: column !important;
     h1 {
       font-size: unset !important;
       line-height: 1.1 !important;
       font-size: clamp(1rem, 3vw, 1.3rem) !important;
+      margin-bottom: 1.1rem;
       span {
         font-size: unset !important;
       }
@@ -40,7 +48,7 @@
     h2 {
       font-size: clamp(2.7rem, 6vw, 4.4rem) !important;
       line-height: 1 !important;
-      padding-block: 1.5rem 2rem;
+      padding-bottom: 2rem;
       span {
         font-size: unset !important;
       }
@@ -48,9 +56,9 @@
   
     & + .site-title {
       font-size: clamp(14px, 5vw, 18px) !important;
-      line-height: 1.65;
+      line-height: 1.3;
       text-align: center !important;
-      span {
+      span, div {
         font-size: unset !important;
       }
     }  
@@ -182,12 +190,9 @@
         background-color: #191919 !important;
       }
     }
-  }
-  .site-card {
-    padding: 0 !important;
-  }
+  }  
   .site-title {
-    h2 {
+    h3 {
       line-height: 1 !important;
       span {
         display: inline-block;
@@ -214,7 +219,7 @@
   padding-block: var(--section-padding-block) 4rem;
 }
 .meet-the-bims {
-  @include mixins.title-wrapper; 
+  //@include mixins.title-wrapper; 
   max-width: 1170px;
   margin-inline: auto;
   .title-wrapper {
@@ -276,7 +281,7 @@
         background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMTIgMGMtNC4xOTggMC04IDMuNDAzLTggNy42MDIgMCA0LjE5OCAzLjQ2OSA5LjIxIDggMTYuMzk4IDQuNTMxLTcuMTg4IDgtMTIuMiA4LTE2LjM5OCAwLTQuMTk5LTMuODAxLTcuNjAyLTgtNy42MDJ6bTAgMTFjLTEuNjU3IDAtMy0xLjM0My0zLTNzMS4zNDMtMyAzLTMgMyAxLjM0MyAzIDMtMS4zNDMgMy0zIDN6Ii8+PC9zdmc+");
       }
     }
-  }
+  }  
 
   .row {
     display: flex;    
@@ -301,15 +306,15 @@
   }
 
   .video-wrapper {
-    iframe {
-      width: 100%;
-      height: 100%;
-      aspect-ratio: 16/9;
-      @media(min-width: 1200px) {
-        aspect-ratio: 5/3;
+    width: 100%;    
+    height: auto;        
+    box-shadow: 2px 3px 6px 1px rgba(0,0,0,0.05);      
+    .videos {
+      .thumb {
+        aspect-ratio: 5/3 !important;
       }
     }
-  }
+  } 
 
   .img-wrapper {
     display: flex;
@@ -445,8 +450,6 @@
 
 // tem dois assim
 .md-house.layout1 {
-  @include mixins.fixing-title-in-lofty-sections; 
-  @include mixins.adding-eyebrow-to-lofty-title; 
   padding-block: var(--section-padding-block) !important;
   .site-title {
     margin-bottom: 3.5rem;
@@ -463,8 +466,6 @@
 }
 
 .md-form.layout13 {
-  @include mixins.fixing-title-in-lofty-sections; 
-  //@include mixins.adding-eyebrow-to-lofty-title;
   & > .f-col {
     max-width: 1024px;
     border: 1px solid rgba(255,255,255,.85);
@@ -513,12 +514,25 @@
     width: 200px;
     .submit {
       color: var(--we-blue) !important;
+      font-size: 1.05rem !important;
+      line-height: 1 !important;
+    }
+  }
+  .disclaimer-item {
+    color: #fff !important; 
+    .disclaimer-content {
+      color: #fff !important;
+      .privacy-link {
+        color: #fff !important;
+        font-weight: 700;
+      }
     }
   }
 }
 
   .md-form.layout13 + .md-custom-code.html-code {
     @include mixins.featured-areas;
+    padding-top: var(--section-padding-block) !important;
   }
 
 @include mixins.testimonials;  
@@ -527,7 +541,12 @@
 
 @include mixins.contact-form;
 
-.md-form.layout11 + .md-custom-code.html-code {
+.md-form.layout11 + .md-custom-code.html-code {  
+  @include mixins.iframe-map;
+}
+
+
+.md-form.layout11 + .md-custom-code.html-code + .md-custom-code.html-code {
   background-color: var(--we-red);    
   padding-block: calc(1.8rem + .7vw);
   text-align: center;

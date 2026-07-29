@@ -1,5 +1,6 @@
 @use 'mixins';
 
+@include mixins.fix-header;
 @include mixins.top-banner;
 @include mixins.title-strip;
 @include mixins.md-cta-layout1;
@@ -8,7 +9,7 @@
 .md-banner.layout1 {
   .single-picture {
     @media(min-width: 601px) {
-      background-position-y: 220% !important;
+      background-position-y: 300% !important;
     }
   }
 }

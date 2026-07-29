@@ -5,7 +5,14 @@
 @include mixins.section-title-eyebrow;
 @include mixins.contact-form;
 @include mixins.md-cta-layout1;
-@include mixins.md-cta-layout13;
+
+.md-banner.layout1 {
+  .single-picture {
+    @media(min-width: 601px) {
+      background-position-y: 140% !important;
+    }
+  }
+}
 
 .md-banner.layout1 + .md-custom-code.html-code {
   background-color: #f8f8f8;
@@ -27,7 +34,7 @@
   
   p {
     font-family: var(--font-normal);
-    color: #444;  
+    color: #222;  
     font-size: 1rem;
     line-height: 1.65;
     margin-top: 2rem;
@@ -54,5 +61,66 @@
   }
   .form-map {
     display: none !important;
+  }
+}
+
+.md-form.layout11 + .md-custom-code.html-code {
+  padding-block: var(--section-padding-block);
+  background-color: #f2f2f2;
+}
+#why-choose-our-cash-offer {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 44px 40px;
+    @media(max-width: 1199px) {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px 30px;
+    }
+    @media(max-width: 767px) {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 4px;
+      padding: 3.2vw;
+      height: 100%;
+      width: 100%;
+      max-width: 540px;
+      margin-inline: auto;
+      overflow: hidden;
+      border: 1px solid hsl(0, 0%, 94%);
+      border-radius: 3px;
+      box-shadow: 4px 6px 8px 1px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      @media(max-width: 991px) {
+        padding: 3rem 2rem;
+      }
+      @media(max-width: 767px) {
+        padding: 1.5rem 1rem;
+      }
+      &-title {
+        color: var(--we-blue) !important;
+        font-family: font-Lato-700;
+        font-size: clamp(1.2rem, 2.7vw, 1.5rem) !important;
+        line-height: 1.2;
+        margin: .7rem auto .9rem !important;
+      }
+      &-subtitle {
+        margin-bottom: 0 !important;
+        font-size: clamp(1rem, 3vw, 1.1rem);
+        line-height: 1.65;
+        color: #222;
+        text-wrap: pretty;
+      }
+      .icon-wrapper {
+        font-size: 2.5rem;
+      }
+    }
   }
 }

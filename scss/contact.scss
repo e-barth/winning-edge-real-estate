@@ -1,10 +1,23 @@
 @use 'mixins';
 
+@include mixins.fix-header;
 @include mixins.top-banner;
 @include mixins.contact-info;
 @include mixins.contact-form;
 
-.md-form.layout11 + .md-custom-code.html-code {
+.md-banner.layout1 {
+  .single-picture {
+    @media(min-width: 601px) {
+      background-position-y: 150% !important;
+    }
+  }
+}
+
+.md-form.layout11 + .md-custom-code.html-code {  
+  @include mixins.iframe-map;
+}
+
+.md-form.layout11 + .md-custom-code.html-code + .md-custom-code.html-code {
   background-color: var(--we-red);    
   padding-block: calc(1.8rem + .7vw);
   h2 {
